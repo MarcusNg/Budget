@@ -2,16 +2,24 @@ PODS:
   - Charts (3.0.1):
     - Charts/Core (= 3.0.1)
   - Charts/Core (3.0.1)
+  - Realm (2.1.2):
+    - Realm/Headers (= 2.1.2)
+  - Realm/Headers (2.1.2)
+  - RealmSwift (2.1.2):
+    - Realm (= 2.1.2)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - Charts (~> 3.0.1)
+  - RealmSwift
   - SWRevealViewController (~> 2.3.0)
 
 SPEC CHECKSUMS:
   Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
+  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
+  RealmSwift: 17d6ee30b6f9df86364408c2197492e33bfea567
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 7910daeda6b59bcf696a0b6537f3501d85f51fa3
+PODFILE CHECKSUM: 4e1547020b7616b680ce7c59a713490d08877709
 
 COCOAPODS: 1.2.0.beta.3
