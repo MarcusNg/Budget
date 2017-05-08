@@ -92,7 +92,7 @@
 		5F6416D41EBFDE8100683F80 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
-				5F6416F81EC0051600683F80 /* Helper */,
+				5F6416F81EC0051600683F80 /* Helpers */,
 				5F6416EA1EBFE99200683F80 /* View Controllers */,
 				5F6416D51EBFDE8100683F80 /* AppDelegate.swift */,
 				5F6416D91EBFDE8100683F80 /* Main.storyboard */,
@@ -116,12 +116,12 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		5F6416F81EC0051600683F80 /* Helper */ = {
+		5F6416F81EC0051600683F80 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				5F6416F91EC0053400683F80 /* NavBar.swift */,
 			);
-			name = Helper;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +383,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8YCPCF4H7X;
 				INFOPLIST_FILE = Budget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarcusNg.Budget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,6 +401,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8YCPCF4H7X;
 				INFOPLIST_FILE = Budget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarcusNg.Budget;
 				PRODUCT_NAME = "$(TARGET_NAME)";

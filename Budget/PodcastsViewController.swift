@@ -30,11 +30,15 @@ class PodcastsViewController: UIViewController {
         
         if revealViewController() != nil {
             
+            let screenSize = UIScreen.main.bounds
+            let screenWidth = screenSize.width
+            
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rearViewRevealWidth = 275 // Overlap width
+            revealViewController().rearViewRevealWidth = screenWidth * 0.7 // Overlap width
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             
         }
     }
