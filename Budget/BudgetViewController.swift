@@ -16,9 +16,8 @@ class BudgetViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        slideMenu()
-        //TEMP
-        customizeNavBar()
+        slideMenu(button: menuButton)
+        NavBar.customizeNavBar(navController: navigationController)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +26,7 @@ class BudgetViewController: UIViewController {
     }
     
     // Slideout Menu
-    func slideMenu() {
+    func slideMenu(button: UIBarButtonItem) {
         
         if revealViewController() != nil {
             
@@ -40,15 +39,4 @@ class BudgetViewController: UIViewController {
         }
     }
     
-    func RGBFloat(x: Int) -> Float {
-        return Float(x) / 255
-    }
-    
-    // Custom Navbar TEMP (put into a static class)
-    func customizeNavBar() {
-        navigationController?.navigationBar.tintColor = UIColor(colorLiteralRed: RGBFloat(x: 255), green: RGBFloat(x: 255), blue: RGBFloat(x: 255), alpha: 1) // Bar Item Tint
-        navigationController?.navigationBar.barTintColor = UIColor(colorLiteralRed: RGBFloat(x: 51), green: RGBFloat(x: 204), blue: RGBFloat(x: 51), alpha: 1) // NavBar
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white] // Title
-    }
-
 }

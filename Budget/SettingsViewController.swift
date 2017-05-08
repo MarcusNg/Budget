@@ -1,5 +1,5 @@
 //
-//  FeedViewController.swift
+//  SettingsViewController.swift
 //  Budget
 //
 //  Created by Marcus Ng on 5/7/17.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         slideMenu(button: menuButton)
         NavBar.customizeNavBar(navController: navigationController)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,5 +38,5 @@ class FeedViewController: UIViewController {
             
         }
     }
-
+    
 }

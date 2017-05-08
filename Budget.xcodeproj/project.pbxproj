@@ -15,6 +15,10 @@
 		5F6416E31EBFDE8100683F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416E11EBFDE8100683F80 /* LaunchScreen.storyboard */; };
 		5F6416F11EBFECD700683F80 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416F01EBFECD700683F80 /* BudgetViewController.swift */; };
 		5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416F61EBFFA2700683F80 /* FeedViewController.swift */; };
+		5F6416FA1EC0053400683F80 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416F91EC0053400683F80 /* NavBar.swift */; };
+		5F6416FE1EC00E5000683F80 /* PodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */; };
+		5F6417001EC00E5A00683F80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */; };
+		5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417011EC00E6300683F80 /* HelpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		5F6416F01EBFECD700683F80 /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		5F6416F51EBFF1D200683F80 /* Budget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Budget-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F6416F61EBFFA2700683F80 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		5F6416F91EC0053400683F80 /* NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
+		5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastsViewController.swift; sourceTree = "<group>"; };
+		5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5F6417011EC00E6300683F80 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		97370E21411F541B25137093 /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		CB08E7278A7055A2C8244E29 /* Pods-Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +92,7 @@
 		5F6416D41EBFDE8100683F80 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
+				5F6416F81EC0051600683F80 /* Helper */,
 				5F6416EA1EBFE99200683F80 /* View Controllers */,
 				5F6416D51EBFDE8100683F80 /* AppDelegate.swift */,
 				5F6416D91EBFDE8100683F80 /* Main.storyboard */,
@@ -100,8 +109,19 @@
 			children = (
 				5F6416F01EBFECD700683F80 /* BudgetViewController.swift */,
 				5F6416F61EBFFA2700683F80 /* FeedViewController.swift */,
+				5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */,
+				5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */,
+				5F6417011EC00E6300683F80 /* HelpViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5F6416F81EC0051600683F80 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5F6416F91EC0053400683F80 /* NavBar.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6416FA1EC0053400683F80 /* NavBar.swift in Sources */,
+				5F6416FE1EC00E5000683F80 /* PodcastsViewController.swift in Sources */,
+				5F6417001EC00E5A00683F80 /* SettingsViewController.swift in Sources */,
+				5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */,
 				5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */,
 				5F6416DE1EBFDE8100683F80 /* Budget.xcdatamodeld in Sources */,
 				5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */,
