@@ -6,7 +6,7 @@ target 'Budget' do
   use_frameworks!
 
   # Pods for Budget
-  pod 'SWRevealViewController'
-  pod 'Charts'
+  pod 'SWRevealViewController', '~> 2.3.0'
+  pod 'Charts', '~> 3.0.1'
   
 end

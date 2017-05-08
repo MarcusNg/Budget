@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -197,23 +198,40 @@
                         <viewControllerLayoutGuide type="bottom" id="ecg-Ps-p1t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oL6-Xf-kun">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-bK-6kr">
-                                <rect key="frame" x="0.0" y="338" width="375" height="329"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-bK-6kr">
+                                <rect key="frame" x="0.0" y="327" width="375" height="276"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="276" id="nBK-au-Y7X"/>
+                                </constraints>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT4-eN-JIb" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="57" y="37" width="261" height="261"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ciQ-bK-6kr" secondAttribute="trailing" id="7KU-Vf-qLt"/>
+                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="top" secondItem="bT4-eN-JIb" secondAttribute="bottom" constant="29" id="CDT-DV-xaB"/>
+                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="leading" secondItem="oL6-Xf-kun" secondAttribute="leading" id="Xgm-ma-MpI"/>
+                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="bottom" secondItem="ecg-Ps-p1t" secondAttribute="top" id="c5z-jV-fkw"/>
+                            <constraint firstItem="bT4-eN-JIb" firstAttribute="centerX" secondItem="ciQ-bK-6kr" secondAttribute="centerX" id="caz-Kx-SNI"/>
+                            <constraint firstItem="bT4-eN-JIb" firstAttribute="leading" secondItem="oL6-Xf-kun" secondAttribute="leadingMargin" constant="41" id="mwv-lf-bEi"/>
+                            <constraint firstItem="bT4-eN-JIb" firstAttribute="top" secondItem="EUv-AF-vDl" secondAttribute="bottom" constant="37" id="pRa-4n-3ki"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Budget" id="dPR-OR-jtn">
                         <barButtonItem key="leftBarButtonItem" title="-_-" id="jYS-5s-OEV"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="faZ-rY-EGC"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="jYS-5s-OEV" id="fhJ-VT-Wqw"/>
+                        <outlet property="pieChartView" destination="bT4-eN-JIb" id="cHm-Td-SfJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHk-4l-HI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -384,6 +402,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bKt-nX-6lt"/>
+        <segue reference="dNj-K9-eLG"/>
     </inferredMetricsTieBreakers>
 </document>

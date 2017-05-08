@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Charts
 
 class BudgetViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    @IBOutlet weak var pieChartView: PieChartView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
