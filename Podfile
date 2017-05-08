@@ -8,7 +8,7 @@ target 'Budget' do
   # Pods for Budget
   pod 'SWRevealViewController', '~> 2.3.0'
   pod 'Charts', '~> 3.0.1'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 2.7.0'
   
 end
 
