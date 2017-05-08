@@ -1,12 +1,17 @@
 PODS:
+  - Charts (3.0.1):
+    - Charts/Core (= 3.0.1)
+  - Charts/Core (3.0.1)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - Charts
   - SWRevealViewController
 
 SPEC CHECKSUMS:
+  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: ad094fd1388201701bf17c483d19c199ee464b88
+PODFILE CHECKSUM: a51d5a300ace1997a7fa59287fb26cf992ac880a
 
 COCOAPODS: 1.2.0.beta.3
