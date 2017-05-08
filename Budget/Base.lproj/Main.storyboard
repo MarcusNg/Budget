@@ -227,7 +227,11 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Budget" id="dPR-OR-jtn">
                         <barButtonItem key="leftBarButtonItem" title="-_-" id="jYS-5s-OEV"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="faZ-rY-EGC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="faZ-rY-EGC">
+                            <connections>
+                                <segue destination="xxE-Lq-y4E" kind="show" id="oce-RB-hcY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="jYS-5s-OEV" id="fhJ-VT-Wqw"/>
@@ -237,6 +241,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHk-4l-HI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1096.8" y="984.55772113943033"/>
+        </scene>
+        <!--Expense-->
+        <scene sceneID="6hK-hq-ggG">
+            <objects>
+                <viewController id="xxE-Lq-y4E" customClass="ExpenseViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tne-wS-38D"/>
+                        <viewControllerLayoutGuide type="bottom" id="TzS-F2-I4h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K1R-oq-mUY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Expense" id="Hrd-T0-yEK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUf-mA-Yjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1884" y="985"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Dc-IG-OHC">

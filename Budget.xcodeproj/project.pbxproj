@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416D51EBFDE8100683F80 /* AppDelegate.swift */; };
 		5F6416DB1EBFDE8100683F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416D91EBFDE8100683F80 /* Main.storyboard */; };
-		5F6416DE1EBFDE8100683F80 /* Budget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416DC1EBFDE8100683F80 /* Budget.xcdatamodeld */; };
 		5F6416E01EBFDE8100683F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416DF1EBFDE8100683F80 /* Assets.xcassets */; };
 		5F6416E31EBFDE8100683F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416E11EBFDE8100683F80 /* LaunchScreen.storyboard */; };
 		5F6416F11EBFECD700683F80 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416F01EBFECD700683F80 /* BudgetViewController.swift */; };
@@ -18,6 +17,8 @@
 		5F6416FE1EC00E5000683F80 /* PodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */; };
 		5F6417001EC00E5A00683F80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */; };
 		5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417011EC00E6300683F80 /* HelpViewController.swift */; };
+		5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */; };
+		5F64170C1EC1143000683F80 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64170B1EC1143000683F80 /* Expense.swift */; };
 		BD8AB03A6E552A8AF93B4D40 /* Pods_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F3AAC3E02BD987A11727CA /* Pods_Budget.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +27,6 @@
 		5F6416D21EBFDE8100683F80 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6416D51EBFDE8100683F80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F6416DA1EBFDE8100683F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5F6416DD1EBFDE8100683F80 /* Budget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budget.xcdatamodel; sourceTree = "<group>"; };
 		5F6416DF1EBFDE8100683F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F6416E21EBFDE8100683F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F6416E41EBFDE8100683F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +37,8 @@
 		5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastsViewController.swift; sourceTree = "<group>"; };
 		5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5F6417011EC00E6300683F80 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
+		5F64170B1EC1143000683F80 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		BF3B414E82D971E0A483420F /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		DDB7002284E360D02A4583F0 /* Pods-Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,14 +86,14 @@
 		5F6416D41EBFDE8100683F80 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
-				5F6416F81EC0051600683F80 /* Helpers */,
+				5F64170A1EC1142000683F80 /* Objects */,
 				5F6416EA1EBFE99200683F80 /* View Controllers */,
+				5F6416F81EC0051600683F80 /* Helpers */,
 				5F6416D51EBFDE8100683F80 /* AppDelegate.swift */,
 				5F6416D91EBFDE8100683F80 /* Main.storyboard */,
 				5F6416DF1EBFDE8100683F80 /* Assets.xcassets */,
 				5F6416E11EBFDE8100683F80 /* LaunchScreen.storyboard */,
 				5F6416E41EBFDE8100683F80 /* Info.plist */,
-				5F6416DC1EBFDE8100683F80 /* Budget.xcdatamodeld */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -99,11 +101,11 @@
 		5F6416EA1EBFE99200683F80 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5F6416F01EBFECD700683F80 /* BudgetViewController.swift */,
-				5F6416F61EBFFA2700683F80 /* FeedViewController.swift */,
-				5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */,
-				5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */,
-				5F6417011EC00E6300683F80 /* HelpViewController.swift */,
+				5F6417031EC10E5800683F80 /* Budget */,
+				5F6417041EC10E6200683F80 /* Feed */,
+				5F6417051EC10E6600683F80 /* Podcasts */,
+				5F6417061EC10E7200683F80 /* Settings */,
+				5F6417071EC10E7C00683F80 /* Help */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -114,6 +116,55 @@
 				5F6416F91EC0053400683F80 /* NavBar.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		5F6417031EC10E5800683F80 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				5F6416F01EBFECD700683F80 /* BudgetViewController.swift */,
+				5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */,
+			);
+			name = Budget;
+			sourceTree = "<group>";
+		};
+		5F6417041EC10E6200683F80 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				5F6416F61EBFFA2700683F80 /* FeedViewController.swift */,
+			);
+			name = Feed;
+			sourceTree = "<group>";
+		};
+		5F6417051EC10E6600683F80 /* Podcasts */ = {
+			isa = PBXGroup;
+			children = (
+				5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */,
+			);
+			name = Podcasts;
+			sourceTree = "<group>";
+		};
+		5F6417061EC10E7200683F80 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		5F6417071EC10E7C00683F80 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				5F6417011EC00E6300683F80 /* HelpViewController.swift */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
+		5F64170A1EC1142000683F80 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				5F64170B1EC1143000683F80 /* Expense.swift */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 		9A24E82FEE69CF2048AB48FD /* Frameworks */ = {
@@ -254,7 +305,8 @@
 				5F6417001EC00E5A00683F80 /* SettingsViewController.swift in Sources */,
 				5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */,
 				5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */,
-				5F6416DE1EBFDE8100683F80 /* Budget.xcdatamodeld in Sources */,
+				5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */,
+				5F64170C1EC1143000683F80 /* Expense.swift in Sources */,
 				5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */,
 				5F6416F11EBFECD700683F80 /* BudgetViewController.swift in Sources */,
 			);
@@ -432,19 +484,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5F6416DC1EBFDE8100683F80 /* Budget.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5F6416DD1EBFDE8100683F80 /* Budget.xcdatamodel */,
-			);
-			currentVersion = 5F6416DD1EBFDE8100683F80 /* Budget.xcdatamodel */;
-			path = Budget.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5F6416CA1EBFDE8100683F80 /* Project object */;
 }
