@@ -9,23 +9,26 @@
 /* Begin PBXBuildFile section */
 		0407E9F0956D164AC47958E7 /* Pods_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C460FB48617A29A907AF343 /* Pods_Budget.framework */; };
 		5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416D51EBFDE8100683F80 /* AppDelegate.swift */; };
-		5F6416D81EBFDE8100683F80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416D71EBFDE8100683F80 /* ViewController.swift */; };
 		5F6416DB1EBFDE8100683F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416D91EBFDE8100683F80 /* Main.storyboard */; };
 		5F6416DE1EBFDE8100683F80 /* Budget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416DC1EBFDE8100683F80 /* Budget.xcdatamodeld */; };
 		5F6416E01EBFDE8100683F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416DF1EBFDE8100683F80 /* Assets.xcassets */; };
 		5F6416E31EBFDE8100683F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416E11EBFDE8100683F80 /* LaunchScreen.storyboard */; };
+		5F6416F11EBFECD700683F80 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416F01EBFECD700683F80 /* BudgetViewController.swift */; };
+		5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416F61EBFFA2700683F80 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C460FB48617A29A907AF343 /* Pods_Budget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6416D21EBFDE8100683F80 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6416D51EBFDE8100683F80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5F6416D71EBFDE8100683F80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5F6416DA1EBFDE8100683F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F6416DD1EBFDE8100683F80 /* Budget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budget.xcdatamodel; sourceTree = "<group>"; };
 		5F6416DF1EBFDE8100683F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F6416E21EBFDE8100683F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F6416E41EBFDE8100683F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F6416F01EBFECD700683F80 /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		5F6416F51EBFF1D200683F80 /* Budget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Budget-Bridging-Header.h"; sourceTree = "<group>"; };
+		5F6416F61EBFFA2700683F80 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		97370E21411F541B25137093 /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		CB08E7278A7055A2C8244E29 /* Pods-Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +65,7 @@
 		5F6416C91EBFDE8100683F80 = {
 			isa = PBXGroup;
 			children = (
+				5F6416F51EBFF1D200683F80 /* Budget-Bridging-Header.h */,
 				5F6416D41EBFDE8100683F80 /* Budget */,
 				5F6416D31EBFDE8100683F80 /* Products */,
 				102942E12FCE446D3E71616D /* Pods */,
@@ -94,7 +98,8 @@
 		5F6416EA1EBFE99200683F80 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5F6416D71EBFDE8100683F80 /* ViewController.swift */,
+				5F6416F01EBFECD700683F80 /* BudgetViewController.swift */,
+				5F6416F61EBFFA2700683F80 /* FeedViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -224,9 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6416D81EBFDE8100683F80 /* ViewController.swift in Sources */,
 				5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */,
 				5F6416DE1EBFDE8100683F80 /* Budget.xcdatamodeld in Sources */,
+				5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */,
+				5F6416F11EBFECD700683F80 /* BudgetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +362,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarcusNg.Budget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Budget/Budget-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Budget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -373,7 +379,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MarcusNg.Budget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Budget/Budget-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Budget-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -397,6 +403,7 @@
 				5F6416E91EBFDE8100683F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
