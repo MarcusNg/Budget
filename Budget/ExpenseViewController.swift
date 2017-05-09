@@ -12,7 +12,8 @@ import RealmSwift
 class ExpenseViewController: UIViewController {
 
     // categories array
-    
+//    let categories: [String] = ["Business", "Entertainment", "General", "Pets"]
+//    let expenses: [Expense] =
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,11 +26,12 @@ class ExpenseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Adds expense to DB
     func addExpense(/*amount: Int, category[]*/) {
         
         let expense = Expense()
-        expense.amount = 100
-        expense.category = "Business"
+        expense.amount = 50
+        expense.category = "Entertainment"
         
         let realm = try! Realm()
         

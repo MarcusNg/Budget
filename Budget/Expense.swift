@@ -14,5 +14,6 @@ class Expense: Object {
     dynamic var amount: Int = 0
     dynamic var category: String = ""
     //dynamic var time: ISO8601DateFormatter
+    //dynamic var date: Date = Date()
     
 }
