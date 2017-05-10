@@ -198,18 +198,18 @@
                         <viewControllerLayoutGuide type="bottom" id="ecg-Ps-p1t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oL6-Xf-kun">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-bK-6kr">
-                                <rect key="frame" x="0.0" y="327" width="375" height="276"/>
+                                <rect key="frame" x="0.0" y="391" width="375" height="276"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="276" id="nBK-au-Y7X"/>
                                 </constraints>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT4-eN-JIb" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="57" y="37" width="261" height="261"/>
+                                <rect key="frame" x="57" y="57" width="261" height="305"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -253,9 +253,49 @@
                     <view key="view" contentMode="scaleToFill" id="K1R-oq-mUY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iR4-7r-con">
+                                <rect key="frame" x="139" y="109" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j94-sN-Qxf">
+                                <rect key="frame" x="123" y="169" width="129" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j94-sN-Qxf" firstAttribute="top" secondItem="iR4-7r-con" secondAttribute="bottom" constant="30" id="4HR-9o-csg"/>
+                            <constraint firstItem="iR4-7r-con" firstAttribute="top" secondItem="Tne-wS-38D" secondAttribute="bottom" constant="45" id="DOW-gW-aoh"/>
+                            <constraint firstItem="iR4-7r-con" firstAttribute="leading" secondItem="K1R-oq-mUY" secondAttribute="leading" constant="139" id="KUr-2r-Li3"/>
+                            <constraint firstAttribute="trailing" secondItem="j94-sN-Qxf" secondAttribute="trailing" constant="123" id="Lct-an-B7J"/>
+                            <constraint firstAttribute="trailing" secondItem="iR4-7r-con" secondAttribute="trailing" constant="139" id="lB1-hr-4oG"/>
+                            <constraint firstItem="j94-sN-Qxf" firstAttribute="leading" secondItem="K1R-oq-mUY" secondAttribute="leading" constant="123" id="nfv-rq-KAd"/>
+                            <constraint firstItem="TzS-F2-I4h" firstAttribute="top" secondItem="j94-sN-Qxf" secondAttribute="bottom" constant="468" id="t8U-Fb-gde"/>
+                            <constraint firstItem="j94-sN-Qxf" firstAttribute="top" secondItem="iR4-7r-con" secondAttribute="bottom" constant="30" id="tqk-4a-cjQ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Expense" id="Hrd-T0-yEK"/>
+                    <navigationItem key="navigationItem" title="Expense" id="Hrd-T0-yEK">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="dKH-4w-Bs7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ogH-qd-G9K">
+                                <rect key="frame" x="269" y="7" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Expense"/>
+                                <connections>
+                                    <action selector="addExpenseButton:" destination="xxE-Lq-y4E" eventType="touchUpInside" id="fja-si-Db2"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoryTF" destination="j94-sN-Qxf" id="LQb-J8-U4y"/>
+                        <outlet property="expenseAmountTF" destination="iR4-7r-con" id="AeU-x1-nAE"/>
+                        <segue destination="Sju-xu-zb8" kind="show" identifier="unwindToBudget" id="66o-rg-kRX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUf-mA-Yjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -425,6 +465,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="66o-rg-kRX"/>
         <segue reference="dNj-K9-eLG"/>
     </inferredMetricsTieBreakers>
 </document>

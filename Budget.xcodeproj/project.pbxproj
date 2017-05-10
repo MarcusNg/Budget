@@ -19,6 +19,7 @@
 		5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417011EC00E6300683F80 /* HelpViewController.swift */; };
 		5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */; };
 		5F64170C1EC1143000683F80 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64170B1EC1143000683F80 /* Expense.swift */; };
+		5F6417101EC2AB9100683F80 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64170F1EC2AB9100683F80 /* DateHelper.swift */; };
 		BD8AB03A6E552A8AF93B4D40 /* Pods_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F3AAC3E02BD987A11727CA /* Pods_Budget.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		5F6417011EC00E6300683F80 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		5F64170B1EC1143000683F80 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		5F64170F1EC2AB9100683F80 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		BF3B414E82D971E0A483420F /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		DDB7002284E360D02A4583F0 /* Pods-Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				5F6416F91EC0053400683F80 /* NavBar.swift */,
+				5F64170F1EC2AB9100683F80 /* DateHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				5F6417001EC00E5A00683F80 /* SettingsViewController.swift in Sources */,
 				5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */,
 				5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */,
+				5F6417101EC2AB9100683F80 /* DateHelper.swift in Sources */,
 				5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */,
 				5F64170C1EC1143000683F80 /* Expense.swift in Sources */,
 				5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */,

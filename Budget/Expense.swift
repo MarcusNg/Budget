@@ -11,9 +11,9 @@ import RealmSwift
 
 class Expense: Object {
     
-    dynamic var amount: Int = 0
+    dynamic var amount: Double = 0
     dynamic var category: String = ""
-    //dynamic var time: ISO8601DateFormatter
     //dynamic var date: Date = Date()
+    //dynamic var time: Date = Date()
     
 }

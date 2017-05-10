@@ -11,14 +11,18 @@ import RealmSwift
 
 class ExpenseViewController: UIViewController {
 
+    @IBOutlet weak var expenseAmountTF: UITextField!
+    
+    @IBOutlet weak var categoryTF: UITextField!
+    
     // categories array
 //    let categories: [String] = ["Business", "Entertainment", "General", "Pets"]
 //    let expenses: [Expense] =
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addExpense()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,19 +31,30 @@ class ExpenseViewController: UIViewController {
     }
     
     // Adds expense to DB
-    func addExpense(/*amount: Int, category[]*/) {
+    func addExpense(amount: Double, category: String) {
         
         let expense = Expense()
-        expense.amount = 50
-        expense.category = "Entertainment"
+        expense.amount = amount
+        expense.category = category
+        //expense.date = ...
         
         let realm = try! Realm()
         
         try! realm.write {
             realm.add(expense)
             print("Added: " + expense.category + " -- " + String(expense.amount))
+            
+            // Time test
+            print(DateHelper.printDate())
+            print(DateHelper.printTime())
         }
         
+    }
+    
+    
+    @IBAction func addExpenseButton(_ sender: Any) {
+        addExpense(amount: Double(expenseAmountTF.text!)!, category: categoryTF.text!)
+        self.performSegue(withIdentifier: "unwindToBudget", sender: self)
     }
 
 }

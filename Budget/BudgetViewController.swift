@@ -17,17 +17,16 @@ class BudgetViewController: UIViewController {
     @IBOutlet weak var pieChartView: PieChartView!
     
     
-    let categories: [String] = ["Business", "Entertainment", "General", "Pets"]
+    let categories: [String] = ["Business", "Clothing", "Education", "Electronics", "Entertainment", "Food", "General", "Gifts", "Health", "Home", "Kids", "Personal", "Pets", "Transportation", "Utilities", "Vacation"]
     let expenses: [Int] = [100, 150, 50, 25]
         
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         slideMenu(button: menuButton)
         NavBar.customizeNavBar(navController: navigationController)
-        
         queryExpenses()
         setPieChart()
     }
@@ -62,10 +61,8 @@ class BudgetViewController: UIViewController {
         
         let allExpenses = realm.objects(Expense.self)
         
-//        var business = allExpenses.filter("category")
-        
         for expense in allExpenses {
-            print("Category: \(expense.category)" + " Amount: " + String(expense.amount))
+            print("Category: \(expense.category)" + "\nAmount: " + String(expense.amount))
         }
         
     }
