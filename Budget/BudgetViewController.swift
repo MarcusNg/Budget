@@ -88,13 +88,11 @@ class BudgetViewController: UIViewController {
         var entries: [PieChartDataEntry] = []
         
         // Add each categoryTotal values to the PieChartDataEntries
-        for (category, totalSpent) in categoryTotal {
-            print(category + ": $" + String(totalSpent))
-            if totalSpent != 0 {
-                
-                // Get percent
-                
-                entries.append(PieChartDataEntry(value: totalSpent, label: category))
+        for (category, spent) in categoryTotal {
+            print(category + ": $" + String(spent))
+            if spent != 0 {
+                entries.append(PieChartDataEntry(value: spent, label: ""))
+                // If pie chart is clicked, then show category
             }
         }
         
@@ -119,13 +117,23 @@ class BudgetViewController: UIViewController {
         
         pieChartView.data = data
         
+        // Center text
+        pieChartView.centerText = "%"
+        
+        // No data text
+        pieChartView.noDataText = "Please enter an expense"
+        
         // Description
         pieChartView.chartDescription?.text = ""
+        
+        // % Values
+        pieChartView.usePercentValuesEnabled = true;
         
         // Disable Legend
         let legend: Legend = pieChartView.legend
         legend.enabled = false
         
+        // Refresh chart
         pieChartView.invalidateIntrinsicContentSize()
         
     }
