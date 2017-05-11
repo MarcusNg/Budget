@@ -16,11 +16,13 @@ class BudgetViewController: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!
     
-    
+    // Temporary
     let categories: [String] = ["Business", "Clothing", "Education", "Electronics", "Entertainment", "Food", "General", "Gifts", "Health", "Home", "Kids", "Personal", "Pets", "Transportation", "Utilities", "Vacation"]
-    let expenses: [Int] = [100, 150, 50, 25]
-        
-        
+    
+    var expenses: [Expense] = []
+    var categoryTotal: [String: Double] = ["Business": 0, "Clothing": 0, "Education": 0,"Electronics": 0, "Entertainment": 0, "Food": 0, "General": 0, "Gifts": 0, "Health": 0, "Home": 0, "Kids": 0, "Personal": 0, "Pets": 0, "Transportation": 0, "Utilities": 0, "Vacation": 0]
+    var totalSpent: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,7 @@ class BudgetViewController: UIViewController {
         slideMenu(button: menuButton)
         NavBar.customizeNavBar(navController: navigationController)
         queryExpenses()
+        
         setPieChart()
     }
 
@@ -56,33 +59,51 @@ class BudgetViewController: UIViewController {
     
     // Load expenses
     func queryExpenses() {
-        
+        print("Query Expenses...")
         let realm = try! Realm()
         
         let allExpenses = realm.objects(Expense.self)
         
         for expense in allExpenses {
             print("Category: \(expense.category)" + "\nAmount: " + String(expense.amount))
+            expenses.append(expense) // Add expense to expenses array
+            
+            // Total cost
+            totalSpent += expense.amount
+            
+            // Add expense amount to the corresponding category
+            var newTotal: Double = categoryTotal[expense.category]!
+            newTotal += expense.amount
+            categoryTotal.updateValue(newTotal, forKey: expense.category)
         }
+        
+        // TODO: Get totals for each category and then add the percentage values to the pie chart
+        // Also have to add time filtering
         
     }
     
     // Pie Chart
     func setPieChart() {
-        
+        print("Create Pie Chart...")
         var entries: [PieChartDataEntry] = []
         
-        entries.append(PieChartDataEntry(value: 25.5, label: "Business"))
-        entries.append(PieChartDataEntry(value: 100.5, label: "Entertainment"))
-        entries.append(PieChartDataEntry(value: 54, label: "General"))
-        entries.append(PieChartDataEntry(value: 6.5, label: "Food"))
+        // Add each categoryTotal values to the PieChartDataEntries
+        for (category, totalSpent) in categoryTotal {
+            print(category + ": $" + String(totalSpent))
+            if totalSpent != 0 {
+                
+                // Get percent
+                
+                entries.append(PieChartDataEntry(value: totalSpent, label: category))
+            }
+        }
         
         let set: PieChartDataSet = PieChartDataSet(values: entries, label: "Budget")
         
         // ------Colors------
         var colors: [UIColor] = []
         
-        for i in 0...4 {
+        for _ in 0...4 {
             let red = Double(arc4random_uniform(256))
             let green = Double(arc4random_uniform(256))
             let blue = Double(arc4random_uniform(256))
@@ -109,4 +130,8 @@ class BudgetViewController: UIViewController {
         
     }
     
+    // Print categoryTotal dictionary
+    func printExpenseDictionary() {
+        
+    }
 }
