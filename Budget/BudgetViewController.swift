@@ -10,11 +10,13 @@ import UIKit
 import Charts
 import RealmSwift
 
-class BudgetViewController: UIViewController {
+class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var pieChartView: PieChartView!
+    
+    @IBOutlet weak var budgetTable: UITableView!
     
     // Temporary
     let categories: [String] = ["Business", "Clothing", "Education", "Electronics", "Entertainment", "Food", "General", "Gifts", "Health", "Home", "Kids", "Personal", "Pets", "Transportation", "Utilities", "Vacation"]
@@ -30,8 +32,8 @@ class BudgetViewController: UIViewController {
         slideMenu(button: menuButton)
         NavBar.customizeNavBar(navController: navigationController)
         queryExpenses()
-        
         setPieChart()
+        budgetTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -138,8 +140,28 @@ class BudgetViewController: UIViewController {
         
     }
     
-    // Print categoryTotal dictionary
-    func printExpenseDictionary() {
+    // Table View -- sort by most money spent
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int {
+        return categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
+        
+        cell.categoryLabel.text = Array(categoryTotal.keys)[indexPath.row] // Category
+        cell.bar.progress = 0.5 // Decimal percent, spent/budget
+        cell.moneyLeftLabel.text = "$" + String(Array(categoryTotal.values)[indexPath.row]) + " of " + "$$$" // $ of $
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // Bring to list of previous category purchases for that month
+        print("Tapped \(indexPath)")
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
+
+        print(Array(categoryTotal.keys)[indexPath.row])
     }
 }

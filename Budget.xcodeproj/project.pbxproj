@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F17DA2F1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */; };
 		5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416D51EBFDE8100683F80 /* AppDelegate.swift */; };
 		5F6416DB1EBFDE8100683F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416D91EBFDE8100683F80 /* Main.storyboard */; };
 		5F6416E01EBFDE8100683F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416DF1EBFDE8100683F80 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		39F3AAC3E02BD987A11727CA /* Pods_Budget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		5F6416D21EBFDE8100683F80 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6416D51EBFDE8100683F80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F6416DA1EBFDE8100683F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,14 @@
 				BF3B414E82D971E0A483420F /* Pods-Budget.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5F17DA2D1EC5F87D00D93AA3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		5F6416C91EBFDE8100683F80 = {
@@ -124,6 +134,7 @@
 		5F6417031EC10E5800683F80 /* Budget */ = {
 			isa = PBXGroup;
 			children = (
+				5F17DA2D1EC5F87D00D93AA3 /* Cells */,
 				5F6416F01EBFECD700683F80 /* BudgetViewController.swift */,
 				5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */,
 			);
@@ -312,6 +323,7 @@
 				5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */,
 				5F64170C1EC1143000683F80 /* Expense.swift in Sources */,
 				5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */,
+				5F17DA2F1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift in Sources */,
 				5F6416F11EBFECD700683F80 /* BudgetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
