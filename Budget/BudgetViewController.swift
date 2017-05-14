@@ -23,6 +23,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var expenses: [Expense] = []
     var categoryTotal: [String: Double] = ["Business": 0, "Clothing": 0, "Education": 0,"Electronics": 0, "Entertainment": 0, "Food": 0, "General": 0, "Gifts": 0, "Health": 0, "Home": 0, "Kids": 0, "Personal": 0, "Pets": 0, "Transportation": 0, "Utilities": 0, "Vacation": 0]
+    
     var totalSpent: Double = 0
     
     override func viewDidLoad() {
@@ -140,7 +141,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    // Table View -- sort by most money spent
+    // Table View -- sort by most highest progress
     func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int {
         return categories.count
     }
@@ -149,9 +150,11 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
         
+        let money: String = String(format: "%.02f", Array(categoryTotal.values)[indexPath.row])
+        
         cell.categoryLabel.text = Array(categoryTotal.keys)[indexPath.row] // Category
-        cell.bar.progress = 0.5 // Decimal percent, spent/budget
-        cell.moneyLeftLabel.text = "$" + String(Array(categoryTotal.values)[indexPath.row]) + " of " + "$$$" // $ of $
+        cell.bar.progress = Float(arc4random()) / Float(UINT32_MAX)// Decimal percent, spent/budget
+        cell.moneyLeftLabel.text = "$" + money + " of " + "$$$" // $ of $
 
         return cell
     }
