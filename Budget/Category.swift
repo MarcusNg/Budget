@@ -56,29 +56,24 @@ class Category {
     }
     
     // Setters
-    func setCategory(newCategory: String) -> String {
+    func setCategory(newCategory: String) {
         category = newCategory
-        return category
     }
     
-    func setMoneySpent(newMoneySpent: Double) -> Double {
+    func setMoneySpent(newMoneySpent: Double) {
         moneySpent = newMoneySpent
-        return moneySpent
     }
     
-    func setMoneyLimit(newMoneyLimit: Double) -> Double {
+    func setMoneyLimit(newMoneyLimit: Double) {
         moneyLimit = newMoneyLimit
-        return moneyLimit
     }
     
-    func setProgress(newProgress: Double) -> Double {
+    func setProgress(newProgress: Double) {
         progress = newProgress
-        return progress
     }
     
-    func setColor(newColor: UIColor) -> UIColor {
+    func setColor(newColor: UIColor) {
         color = newColor
-        return color
     }
     
 }
