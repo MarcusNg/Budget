@@ -26,35 +26,35 @@ class Categories {
         allCategories.append(Category(newCategory: "Health", newMoneySpent: 0, newMoneyLimit: 0, newProgress: 0, newColor: UIColor.red))
     }
     
-    static func updateMoneySpent(category: Category, moneySpent: Double) {
+    static func updateMoneySpent(category: String, moneySpent: Double) {
         for cat in allCategories {
-            if cat.getCategory() == category.getCategory() {
+            if cat.getCategory() == category {
                 let newTotal: Double = cat.getMoneySpent() + moneySpent
                 cat.setMoneySpent(newMoneySpent: newTotal)
             }
         }
     }
     
-    static func updateMoneyLimit(category: Category, moneyLimit: Double) {
+    static func updateMoneyLimit(category: String, moneyLimit: Double) {
         for cat in allCategories {
-            if cat.getCategory() == category.getCategory() {
+            if cat.getCategory() == category {
                 cat.setMoneyLimit(newMoneyLimit: moneyLimit)
             }
         }
     }
     
     // Progress is moneySpent/moneyLimit
-    static func updateProgress(category: Category, progress: Double) {
+    static func updateProgress(category: String, progress: Double) {
         for cat in allCategories {
-            if cat.getCategory() == category.getCategory() {
+            if cat.getCategory() == category {
                 cat.setProgress(newProgress: progress)
             }
         }
     }
     
-    static func updateColor(category: Category, color: UIColor) {
+    static func updateColor(category: String, color: UIColor) {
         for cat in allCategories {
-            if cat.getCategory() == category.getCategory() {
+            if cat.getCategory() == category {
                 cat.setColor(newColor: color)
             }
         }

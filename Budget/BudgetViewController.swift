@@ -16,13 +16,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var budgetTable: UITableView!
     
-    // Temporary
-    let category: [String] = ["Business", "Clothing", "Education", "Electronics", "Entertainment", "Food", "General", "Gifts", "Health", "Home", "Kids", "Personal", "Pets", "Transportation", "Utilities", "Vacation"]
-    
     var expenses: [Expense] = []
-    var categories: [Category] = []
-    
-    var categoryTotal: [String: Double] = ["Business": 0, "Clothing": 0, "Education": 0,"Electronics": 0, "Entertainment": 0, "Food": 0, "General": 0, "Gifts": 0, "Health": 0, "Home": 0, "Kids": 0, "Personal": 0, "Pets": 0, "Transportation": 0, "Utilities": 0, "Vacation": 0]
     
     var totalSpent: Double = 0
     
@@ -30,11 +24,16 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        // Navigation
         slideMenu(button: menuButton)
         NavBar.customizeNavBar(navController: navigationController)
-        queryExpenses()
-        setPieChart()
         
+        // Setup expenses and categories
+        Categories.defaultPopulate()
+        queryExpenses()
+        
+        // Visuals
+        setPieChart()
         budgetTable.reloadData()
     }
 
@@ -61,17 +60,6 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    
-    // Contains expense category
-    func contains(expense: Expense) -> Bool {
-        for each in categories {
-            if each.getCategory() == expense.category {
-                return true
-            }
-        }
-        return false
-    }
-    
     // Load expenses
     func queryExpenses() {
         print("Query Expenses...")
@@ -81,27 +69,12 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         for expense in allExpenses {
             print("Category: \(expense.category)" + "\nAmount: " + String(expense.amount))
-            expenses.append(expense) // Add expense to expenses array
             
             // Total cost
             totalSpent += expense.amount
-            
-            // TODO: ADD ALL CATEGORIES (FROM SETTINGS) TO ARRAY BEFORE HAND SO I ONLY HAVE TO UPDATE VALUES
-            // If categories contain the expense category, update moneySpent
-            if (contains(expense: expense)) {
-                for category in categories {
-                    print(category.getCategory() + " " + expense.category)
-                    // If category is different, then create new category
-                    if category.getCategory() == expense.category { // If category is equal to expense category, then increase expense
-                        let newTotal: Double = category.getMoneySpent() + expense.amount
-                        category.setMoneySpent(newMoneySpent: newTotal)
-                        break;
-                    }
-                }
-            } else { // Add new category to array
-                categories.append(Category(newCategory: expense.category, newMoneySpent: expense.amount, newMoneyLimit: 0, newProgress: 0, newColor: UIColor.green))
-            }
-
+ 
+            // Update money spent
+            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
         }
         
         // TODO: Add time filtering
@@ -114,18 +87,11 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var entries: [PieChartDataEntry] = []
         
         // Add each categoryTotal values to the PieChartDataEntries
-        for category in categories {
+        for category in Categories.allCategories {
             if category.getMoneySpent() != 0 {
                 entries.append(PieChartDataEntry(value: category.getMoneySpent(), label: ""))
             }
         }
-//        for (category, spent) in categoryTotal {
-//            print(category + ": $" + String(spent))
-//            if spent != 0 {
-//                entries.append(PieChartDataEntry(value: spent, label: ""))
-//                // If pie chart is clicked, then show category
-//            }
-//        }
         
         let set: PieChartDataSet = PieChartDataSet(values: entries, label: "Budget")
         
@@ -171,17 +137,17 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Table View -- sort by most highest progress
     func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int {
-        return categories.count
+        return Categories.allCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
         
-        let category = categories[indexPath.row]
+        let category = Categories.allCategories[indexPath.row]
         let money: String = String(format: "%.02f", category.getMoneySpent())
         
-        cell.categoryLabel.text = categories[indexPath.row].getCategory() // Category
+        cell.categoryLabel.text = Categories.allCategories[indexPath.row].getCategory() // Category
         cell.bar.progress = Float(arc4random()) / Float(UINT32_MAX)// Decimal percent, spent/budget //categories[indexPath.row].getProgress()//
         cell.moneyLeftLabel.text = "$" + money + " of " + "$$$" // $ of $
 
@@ -194,6 +160,6 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("Tapped \(indexPath)")
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
 
-        print(categories[indexPath.row].getCategory())
+        print(Categories.allCategories[indexPath.row].getCategory())
     }
 }

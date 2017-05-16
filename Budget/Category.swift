@@ -76,4 +76,9 @@ class Category {
         color = newColor
     }
     
+    // Update
+    func updateProgress() {
+        progress = moneySpent / moneyLimit // round?
+    }
+    
 }
