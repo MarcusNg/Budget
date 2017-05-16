@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F17DA2F1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */; };
 		5F2A88741ECA0D3E00D47036 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A88731ECA0D3E00D47036 /* Categories.swift */; };
+		5F5760611ECB9A4300870793 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5760601ECB9A4300870793 /* Expenses.swift */; };
 		5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416D51EBFDE8100683F80 /* AppDelegate.swift */; };
 		5F6416DB1EBFDE8100683F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416D91EBFDE8100683F80 /* Main.storyboard */; };
 		5F6416E01EBFDE8100683F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F6416DF1EBFDE8100683F80 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		39F3AAC3E02BD987A11727CA /* Pods_Budget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		5F2A88731ECA0D3E00D47036 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		5F5760601ECB9A4300870793 /* Expenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		5F6416D21EBFDE8100683F80 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F6416D51EBFDE8100683F80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F6416DA1EBFDE8100683F80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				5F6416F91EC0053400683F80 /* NavBar.swift */,
 				5F64170F1EC2AB9100683F80 /* DateHelper.swift */,
 				5F2A88731ECA0D3E00D47036 /* Categories.swift */,
+				5F5760601ECB9A4300870793 /* Expenses.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */,
 				5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */,
 				5F6417101EC2AB9100683F80 /* DateHelper.swift in Sources */,
+				5F5760611ECB9A4300870793 /* Expenses.swift in Sources */,
 				5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */,
 				5FA31FD81EC8B6F100F1CBA6 /* Category.swift in Sources */,
 				5F64170C1EC1143000683F80 /* Expense.swift in Sources */,

@@ -16,8 +16,6 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var budgetTable: UITableView!
     
-    var expenses: [Expense] = []
-    
     var totalSpent: Double = 0
     
     override func viewDidLoad() {
@@ -30,7 +28,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Setup expenses and categories
         Categories.defaultPopulate()
-        queryExpenses()
+        Expenses.query()
         
         // Visuals
         setPieChart()
@@ -58,27 +56,6 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             
         }
-    }
-    
-    // Load expenses
-    func queryExpenses() {
-        print("Query Expenses...")
-        let realm = try! Realm()
-        
-        let allExpenses = realm.objects(Expense.self)
-        
-        for expense in allExpenses {
-            print("Category: \(expense.category)" + "\nAmount: " + String(expense.amount))
-            
-            // Total cost
-            totalSpent += expense.amount
- 
-            // Update money spent
-            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
-        }
-        
-        // TODO: Add time filtering
-        
     }
     
     // Pie Chart
@@ -145,11 +122,13 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
         
         let category = Categories.allCategories[indexPath.row]
-        let money: String = String(format: "%.02f", category.getMoneySpent())
+        let moneySpent: String = String(format: "%.02f", category.getMoneySpent())
+        let moneyLimit: String = String(format: "%.02f", category.getMoneyLimit())
         
-        cell.categoryLabel.text = Categories.allCategories[indexPath.row].getCategory() // Category
-        cell.bar.progress = Float(arc4random()) / Float(UINT32_MAX)// Decimal percent, spent/budget //categories[indexPath.row].getProgress()//
-        cell.moneyLeftLabel.text = "$" + money + " of " + "$$$" // $ of $
+        cell.categoryLabel.text = category.getCategory() // Category
+        cell.bar.progress = Float(category.getProgress())
+        print(Float(category.getProgress()))
+        cell.moneyLeftLabel.text = "$" + moneySpent + " of $" + moneyLimit // $ of $
 
         return cell
     }
