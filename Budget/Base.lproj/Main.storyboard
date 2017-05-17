@@ -204,7 +204,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-bK-6kr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="zBi-uE-wWc">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="zBi-uE-wWc" userLabel="Pie Chart Container">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="338"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -213,7 +213,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="bT4-eN-JIb" secondAttribute="bottom" constant="28" id="5eS-VL-HMF"/>
                                         <constraint firstItem="bT4-eN-JIb" firstAttribute="leading" secondItem="zBi-uE-wWc" secondAttribute="leadingMargin" constant="30" id="8iF-6W-aBz"/>
@@ -250,6 +250,8 @@
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="jOf-xf-DnZ">
                                                     <rect key="frame" x="14" y="40" width="346" height="2.5"/>
+                                                    <color key="backgroundColor" red="0.79736013169999997" green="0.79327110540000001" blue="0.80144915800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" red="0.0" green="0.80144915800000005" blue="0.4041323235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </progressView>
                                             </subviews>
                                             <constraints>

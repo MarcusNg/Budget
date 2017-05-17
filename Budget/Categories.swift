@@ -17,6 +17,7 @@ class Categories {
     static var allCategories: [Category] = []
     
     static func defaultPopulate() {
+        
         allCategories.append(Category(newCategory: "Clothing", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.blue))
         allCategories.append(Category(newCategory: "Transportation", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.yellow))
         allCategories.append(Category(newCategory: "Other", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.gray))
@@ -32,7 +33,6 @@ class Categories {
                 let newTotal: Double = cat.getMoneySpent() + moneySpent
                 cat.setMoneySpent(newMoneySpent: newTotal)
                 cat.setProgress(newProgress: newTotal / cat.getMoneyLimit())
-                print("print " + String(newTotal / cat.getMoneyLimit()))
             }
         }
     }

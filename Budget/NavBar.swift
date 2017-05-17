@@ -15,10 +15,15 @@ class NavBar {
         return Float(x) / 255
     }
     
-    // Custom Navbar TEMP (put into a static class)
+    // Return UIColor
+    static func RGB(r: Int, g: Int, b: Int) -> UIColor {
+        return UIColor(colorLiteralRed: RGBFloat(x: r), green: RGBFloat(x: g), blue: RGBFloat(x: b), alpha: 1)
+    }
+    
+    // Custom Navbar
     static func customizeNavBar(navController: UINavigationController?) {
-        navController?.navigationBar.tintColor = UIColor(colorLiteralRed: RGBFloat(x: 255), green: RGBFloat(x: 255), blue: RGBFloat(x: 255), alpha: 1) // Bar Item Tint
-        navController?.navigationBar.barTintColor = UIColor(colorLiteralRed: RGBFloat(x: 51), green: RGBFloat(x: 204), blue: RGBFloat(x: 51), alpha: 1) // NavBar
+        navController?.navigationBar.tintColor = RGB(r: 255, g: 255, b: 255) // Bar Item Tint
+        navController?.navigationBar.barTintColor = RGB(r: 51, g: 204, b: 51) // Navbar color
         navController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white] // Title
     }
     

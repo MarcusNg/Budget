@@ -27,7 +27,6 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NavBar.customizeNavBar(navController: navigationController)
         
         // Setup expenses and categories
-        Categories.defaultPopulate()
         Expenses.query()
         
         // Visuals
