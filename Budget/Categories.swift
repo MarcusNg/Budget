@@ -17,7 +17,6 @@ class Categories {
     static var allCategories: [Category] = []
     
     static func defaultPopulate() {
-        
         allCategories.append(Category(newCategory: "Clothing", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.blue))
         allCategories.append(Category(newCategory: "Transportation", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.yellow))
         allCategories.append(Category(newCategory: "Other", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.gray))
@@ -25,6 +24,12 @@ class Categories {
         allCategories.append(Category(newCategory: "Food", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.orange))
         allCategories.append(Category(newCategory: "Housing", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.purple))
         allCategories.append(Category(newCategory: "Health", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.red))
+    }
+    
+    static func sortByProgress(categories: Array<Category>) -> Array<Category> {
+        return categories.sorted { category1,category2 in
+            return category1.getProgress() > category2.getProgress()
+        }
     }
     
     static func updateMoneySpent(category: String, moneySpent: Double) {

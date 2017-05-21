@@ -62,29 +62,26 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("Create Pie Chart...")
         var entries: [PieChartDataEntry] = []
         
-        // Add each categoryTotal values to the PieChartDataEntries
-        for category in Categories.allCategories {
-            if category.getMoneySpent() != 0 {
-                entries.append(PieChartDataEntry(value: category.getMoneySpent(), label: ""))
+//         Add each categoryTotal values to the PieChartDataEntries
+        for cat in Categories.allCategories {
+            if cat.getMoneySpent() != 0 {
+                entries.append(PieChartDataEntry(value: cat.getMoneySpent(), label: ""))
             }
         }
+        
         
         let set: PieChartDataSet = PieChartDataSet(values: entries, label: "Budget")
         
         // ------Colors------
         var colors: [UIColor] = []
         
-        for _ in 0...4 {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            colors.append(color)
+        for cat in Categories.allCategories {
+            colors.append(NavBar.RGB(r: Int(arc4random_uniform(256)), g: Int(arc4random_uniform(256)), b: Int(arc4random_uniform(256))))
         }
         
         set.colors = colors
-        // ------------------
+//         ------------------
+
         
         let data: PieChartData = PieChartData(dataSet: set)
         
@@ -120,7 +117,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
         
-        let category = Categories.allCategories[indexPath.row]
+        let category = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row]
         let moneySpent: String = String(format: "%.02f", category.getMoneySpent())
         let moneyLimit: String = String(format: "%.02f", category.getMoneyLimit())
         
@@ -140,4 +137,5 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         print(Categories.allCategories[indexPath.row].getCategory())
     }
+
 }
