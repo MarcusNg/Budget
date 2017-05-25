@@ -291,7 +291,7 @@
                         <barButtonItem key="leftBarButtonItem" title="-_-" id="jYS-5s-OEV"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="faZ-rY-EGC">
                             <connections>
-                                <segue destination="xxE-Lq-y4E" kind="show" id="oce-RB-hcY"/>
+                                <segue destination="xxE-Lq-y4E" kind="show" id="BCf-zZ-ViV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -299,16 +299,47 @@
                         <outlet property="budgetTable" destination="ciQ-bK-6kr" id="vNq-It-Ozc"/>
                         <outlet property="menuButton" destination="jYS-5s-OEV" id="fhJ-VT-Wqw"/>
                         <outlet property="pieChartView" destination="bT4-eN-JIb" id="cHm-Td-SfJ"/>
+                        <segue destination="wYa-Xc-jpW" kind="show" identifier="displayCategory" id="4Zp-BY-dHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHk-4l-HI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1096.8" y="984.55772113943033"/>
         </scene>
+        <!--Display Category View Controller-->
+        <scene sceneID="dzK-Iy-4oI">
+            <objects>
+                <viewController id="wYa-Xc-jpW" customClass="DisplayCategoryViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iyS-VA-37d"/>
+                        <viewControllerLayoutGuide type="bottom" id="4uK-vl-cIQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7uS-zN-chp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B0-HY-CcM">
+                                <rect key="frame" x="104" y="140" width="167" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="categoryLabel" destination="0B0-HY-CcM" id="EVa-Sb-P7J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u1V-eG-akV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824.8" y="984.55772113943033"/>
+        </scene>
         <!--Expense-->
         <scene sceneID="6hK-hq-ggG">
             <objects>
-                <viewController id="xxE-Lq-y4E" customClass="ExpenseViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xxE-Lq-y4E" customClass="CreateExpenseViewController" customModule="Budget" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tne-wS-38D"/>
                         <viewControllerLayoutGuide type="bottom" id="TzS-F2-I4h"/>
@@ -352,17 +383,20 @@
                                     <action selector="addExpenseButton:" destination="xxE-Lq-y4E" eventType="touchUpInside" id="fja-si-Db2"/>
                                 </connections>
                             </button>
+                            <connections>
+                                <segue destination="yLo-rQ-DRU" kind="unwind" identifier="unwindToBudget" unwindAction="unwindToBudget:" id="Ufx-3L-bIq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryTF" destination="j94-sN-Qxf" id="LQb-J8-U4y"/>
                         <outlet property="expenseAmountTF" destination="iR4-7r-con" id="AeU-x1-nAE"/>
-                        <segue destination="Sju-xu-zb8" kind="show" identifier="unwindToBudget" id="66o-rg-kRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUf-mA-Yjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yLo-rQ-DRU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1884" y="984.55772113943033"/>
+            <point key="canvasLocation" x="1815" y="328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Dc-IG-OHC">
@@ -529,6 +563,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dNj-K9-eLG"/>
-        <segue reference="mh8-Pd-CdU"/>
     </inferredMetricsTieBreakers>
 </document>

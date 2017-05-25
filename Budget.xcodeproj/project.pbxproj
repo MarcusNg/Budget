@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F157F591ED68049000457E1 /* DisplayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F157F581ED68048000457E1 /* DisplayCategoryViewController.swift */; };
 		5F17DA2F1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */; };
 		5F2A88741ECA0D3E00D47036 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A88731ECA0D3E00D47036 /* Categories.swift */; };
 		5F5760611ECB9A4300870793 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5760601ECB9A4300870793 /* Expenses.swift */; };
@@ -20,7 +21,7 @@
 		5F6416FE1EC00E5000683F80 /* PodcastsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */; };
 		5F6417001EC00E5A00683F80 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */; };
 		5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417011EC00E6300683F80 /* HelpViewController.swift */; };
-		5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */; };
+		5F6417091EC10F0F00683F80 /* CreateExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6417081EC10F0F00683F80 /* CreateExpenseViewController.swift */; };
 		5F64170C1EC1143000683F80 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64170B1EC1143000683F80 /* Expense.swift */; };
 		5F6417101EC2AB9100683F80 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64170F1EC2AB9100683F80 /* DateHelper.swift */; };
 		5FA31FD81EC8B6F100F1CBA6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA31FD71EC8B6F100F1CBA6 /* Category.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		39F3AAC3E02BD987A11727CA /* Pods_Budget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Budget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F157F581ED68048000457E1 /* DisplayCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCategoryViewController.swift; sourceTree = "<group>"; };
 		5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		5F2A88731ECA0D3E00D47036 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		5F5760601ECB9A4300870793 /* Expenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
@@ -45,7 +47,7 @@
 		5F6416FD1EC00E5000683F80 /* PodcastsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastsViewController.swift; sourceTree = "<group>"; };
 		5F6416FF1EC00E5A00683F80 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5F6417011EC00E6300683F80 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
+		5F6417081EC10F0F00683F80 /* CreateExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewController.swift; sourceTree = "<group>"; };
 		5F64170B1EC1143000683F80 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		5F64170F1EC2AB9100683F80 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		5FA31FD71EC8B6F100F1CBA6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -144,7 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				5F6416F01EBFECD700683F80 /* BudgetViewController.swift */,
-				5F6417081EC10F0F00683F80 /* ExpenseViewController.swift */,
+				5F6417081EC10F0F00683F80 /* CreateExpenseViewController.swift */,
+				5F157F581ED68048000457E1 /* DisplayCategoryViewController.swift */,
 			);
 			name = Budget;
 			sourceTree = "<group>";
@@ -330,13 +333,14 @@
 				5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */,
 				5F6417101EC2AB9100683F80 /* DateHelper.swift in Sources */,
 				5F5760611ECB9A4300870793 /* Expenses.swift in Sources */,
-				5F6417091EC10F0F00683F80 /* ExpenseViewController.swift in Sources */,
+				5F6417091EC10F0F00683F80 /* CreateExpenseViewController.swift in Sources */,
 				5FA31FD81EC8B6F100F1CBA6 /* Category.swift in Sources */,
 				5F64170C1EC1143000683F80 /* Expense.swift in Sources */,
 				5F6416F71EBFFA2700683F80 /* FeedViewController.swift in Sources */,
 				5F17DA2F1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift in Sources */,
 				5F6416F11EBFECD700683F80 /* BudgetViewController.swift in Sources */,
 				5F2A88741ECA0D3E00D47036 /* Categories.swift in Sources */,
+				5F157F591ED68049000457E1 /* DisplayCategoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

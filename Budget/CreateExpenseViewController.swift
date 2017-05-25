@@ -1,5 +1,5 @@
 //
-//  ExpenseViewController.swift
+//  CreateExpenseViewController.swift
 //  Budget
 //
 //  Created by Marcus Ng on 5/8/17.
@@ -9,15 +9,10 @@
 import UIKit
 import RealmSwift
 
-class ExpenseViewController: UIViewController {
+class CreateExpenseViewController: UIViewController {
 
     @IBOutlet weak var expenseAmountTF: UITextField!
-    
     @IBOutlet weak var categoryTF: UITextField!
-    
-    // categories array
-//    let categories: [String] = ["Business", "Entertainment", "General", "Pets"]
-//    let expenses: [Expense] =
     
     override func viewDidLoad() {
         super.viewDidLoad()

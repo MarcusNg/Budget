@@ -108,6 +108,28 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    // Segues
+    @IBAction func unwindToBudget(_ segue: UIStoryboardSegue) {
+    }
+    
+    // Segue to category
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "displayCategory" {
+                
+                // Find row selected
+                let indexPath = self.budgetTable.indexPathForSelectedRow!
+                let displayCategoryVC = segue.destination as! DisplayCategoryViewController
+                
+                // Pass the category to the displayVC
+                displayCategoryVC.category = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row].getCategory()
+                
+                // Deselect cell
+                budgetTable.deselectRow(at: indexPath, animated: true)
+            }
+        }
+    }
+    
     // Table View -- sort by most highest progress
     func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int {
         return Categories.allCategories.count
@@ -123,19 +145,20 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.categoryLabel.text = category.getCategory() // Category
         cell.bar.progress = Float(category.getProgress())
-        print(Float(category.getProgress()))
+        //print(Float(category.getProgress()))
         cell.moneyLeftLabel.text = "$" + moneySpent + " of $" + moneyLimit // $ of $
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
         // Bring to list of previous category purchases for that month
-        print("Tapped \(indexPath)")
+//        print("Tapped \(indexPath)")
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
+        performSegue(withIdentifier: "displayCategory", sender: self)
 
-        print(Categories.allCategories[indexPath.row].getCategory())
+        //print(Categories.allCategories[indexPath.row].getCategory())
     }
 
 }
