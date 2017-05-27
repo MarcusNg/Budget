@@ -19,10 +19,11 @@ class Expenses {
         print("Query Expenses...")
         let realm = try! Realm()
         
+        // Retrieve expenses
         let allExpenses = realm.objects(Expense.self)
         
         for expense in allExpenses {
-            print("Category: \(expense.category)" + "\nAmount: " + String(expense.amount))
+            print("Category: \(expense.category) -- Amount: \(expense.amount)")
             
             // Total cost
             totalSpent += expense.amount

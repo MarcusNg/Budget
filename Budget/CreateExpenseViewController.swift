@@ -39,6 +39,9 @@ class CreateExpenseViewController: UIViewController {
             realm.add(expense)
             print("Added: " + expense.category + " -- " + String(expense.amount))
             
+            // Update money spent
+            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
+
             // Time test
             print(DateHelper.printDate())
             print(DateHelper.printTime())

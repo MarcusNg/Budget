@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Categories.defaultPopulate()
-        
+
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // will automatically perform the migration
 //        let realm = try! Realm()
 
+        Expenses.query()
         return true
     }
 

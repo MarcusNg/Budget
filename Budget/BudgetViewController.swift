@@ -16,8 +16,6 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var budgetTable: UITableView!
     
-    var totalSpent: Double = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,12 +24,11 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         slideMenu(button: menuButton)
         NavBar.customizeNavBar(navController: navigationController)
         
-        // Setup expenses and categories
-        Expenses.query()
-        
         // Visuals
         setPieChart()
         budgetTable.reloadData()
+        
+        print("Budget VC Loaded")
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,6 +107,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Segues
     @IBAction func unwindToBudget(_ segue: UIStoryboardSegue) {
+        budgetTable.reloadData()
     }
     
     // Segue to category
