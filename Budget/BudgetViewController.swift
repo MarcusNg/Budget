@@ -105,8 +105,9 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-    // Segues
+    // Run when segue unwinds
     @IBAction func unwindToBudget(_ segue: UIStoryboardSegue) {
+        setPieChart()
         budgetTable.reloadData()
     }
     

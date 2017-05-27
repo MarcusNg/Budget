@@ -8,17 +8,23 @@
 
 import UIKit
 
-class DisplayCategoryViewController: UIViewController {
+class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryNavBar: UINavigationItem!
+    
+    @IBOutlet weak var expenseTable: UITableView!
     
     var category: String?
+    var catExpenses: [Expense] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        self.categoryLabel.text = category
+        
+        catExpenses = Expenses.queryCategory(category: category!)
+        
+        self.categoryNavBar.title = category
+        self.expenseTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,5 +32,26 @@ class DisplayCategoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return catExpenses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = expenseTable.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseTableViewCell
+        
+        let expense = catExpenses[indexPath.row]
+        
+        let moneySpent: String = String(format: "%.02f", expense.amount)
+        
+        cell.descriptionLabel.text = "Note..."
+        cell.dateLabel.text = "Date..."
+        cell.moneySpentLabel.text = "- \(moneySpent)"
+        
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
 }

@@ -11,13 +11,13 @@ import RealmSwift
 
 class Expenses {
     
-    static var expenses: [Expense] = []
     static var totalSpent: Double = 0
     
-    // Load expenses
+    static let realm = try! Realm()
+    
+    // Load all expenses
     static func query() {
         print("Query Expenses...")
-        let realm = try! Realm()
         
         // Retrieve expenses
         let allExpenses = realm.objects(Expense.self)
@@ -34,6 +34,21 @@ class Expenses {
         
         // TODO: Add time filtering
         
+    }
+    
+    // Load specific category
+    static func queryCategory(category: String) -> [Expense] {
+        var categoryExpenses: [Expense] = []
+        print("Query \(category) Expenses...")
+        
+        // Retrieve
+        let catExpenses = realm.objects(Expense.self).filter("category = '\(category)'")
+        
+        for expense in catExpenses {
+            categoryExpenses.append(expense)
+        }
+        
+        return categoryExpenses
     }
 
     
