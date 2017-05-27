@@ -12,6 +12,7 @@ import RealmSwift
 class Expenses {
     
     static var totalSpent: Double = 0
+//    static var catTotalSpent: Double = 0
     
     static let realm = try! Realm()
     
@@ -39,6 +40,7 @@ class Expenses {
     // Load specific category
     static func queryCategory(category: String) -> [Expense] {
         var categoryExpenses: [Expense] = []
+//        catTotalSpent = 0
         print("Query \(category) Expenses...")
         
         // Retrieve
@@ -46,6 +48,7 @@ class Expenses {
         
         for expense in catExpenses {
             categoryExpenses.append(expense)
+//            catTotalSpent += expense.amount
         }
         
         return categoryExpenses

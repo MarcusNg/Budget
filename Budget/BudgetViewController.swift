@@ -121,8 +121,10 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let displayCategoryVC = segue.destination as! DisplayCategoryViewController
                 
                 // Pass the category to the displayVC
-                displayCategoryVC.category = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row].getCategory()
-                
+                let sortedCat = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row]
+                displayCategoryVC.category = sortedCat.getCategory()
+                displayCategoryVC.catMoneySpent = sortedCat.getMoneySpent()
+                displayCategoryVC.catMoneyLimit = sortedCat.getMoneyLimit()
                 // Deselect cell
                 budgetTable.deselectRow(at: indexPath, animated: true)
             }
@@ -144,7 +146,6 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.categoryLabel.text = category.getCategory() // Category
         cell.bar.progress = Float(category.getProgress())
-        //print(Float(category.getProgress()))
         cell.moneyLeftLabel.text = "$" + moneySpent + " of $" + moneyLimit // $ of $
 
         return cell
