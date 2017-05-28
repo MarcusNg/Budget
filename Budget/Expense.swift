@@ -13,7 +13,7 @@ class Expense: Object {
     
     dynamic var amount: Double = 0
     dynamic var category: String = ""
-    //dynamic var date: Date = Date()
-    //dynamic var time: Date = Date()
+    dynamic var note: String = ""
+    dynamic var date: Date = Date()
     
 }

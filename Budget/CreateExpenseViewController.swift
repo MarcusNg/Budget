@@ -13,6 +13,7 @@ class CreateExpenseViewController: UIViewController {
 
     @IBOutlet weak var expenseAmountTF: UITextField!
     @IBOutlet weak var categoryTF: UITextField!
+    @IBOutlet weak var noteTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +27,13 @@ class CreateExpenseViewController: UIViewController {
     }
     
     // Adds expense to DB
-    func addExpense(amount: Double, category: String) {
+    func addExpense(category: String, amount: Double, note: String) {
         
         let expense = Expense()
-        expense.amount = amount
         expense.category = category
-        //expense.date = ...
+        expense.amount = amount
+        expense.note = note
+        expense.date = Date()
         
         let realm = try! Realm()
         
@@ -43,15 +45,14 @@ class CreateExpenseViewController: UIViewController {
             Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
 
             // Time test
-            print(DateHelper.printDate())
-            print(DateHelper.printTime())
+            print(expense.date)
         }
         
     }
     
     
     @IBAction func addExpenseButton(_ sender: Any) {
-        addExpense(amount: Double(expenseAmountTF.text!)!, category: categoryTF.text!)
+        addExpense(category: categoryTF.text!, amount: Double(expenseAmountTF.text!)!, note: noteTF.text!)
         self.performSegue(withIdentifier: "unwindToBudget", sender: self)
     }
 

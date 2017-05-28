@@ -34,15 +34,22 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
         return catExpenses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         
-        // Budget Bar
-        if (indexPath.row == 0) {
+        // SECTION 1: Budget Bar
+        if (indexPath.section == 0) {
             
             let moneySpent: String = String(format: "%.02f", catMoneySpent!)
             let moneyLimit: String = String(format: "%.02f", catMoneyLimit!)
@@ -55,7 +62,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             
             cell = budgetCell
             
-        } else { // Expenses
+        } else { // SECTION 2: Expenses
             
             let expenseCell = expenseTable.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseTableViewCell
             
@@ -63,8 +70,8 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             
             let moneySpent: String = String(format: "%.02f", expense.amount)
             
-            expenseCell.descriptionLabel.text = "Note..."
-            expenseCell.dateLabel.text = "Date..."
+            expenseCell.noteLabel.text = expense.note
+            expenseCell.dateLabel.text = DateHelper.printDate(date: expense.date)
             expenseCell.moneySpentLabel.text = "- $\(moneySpent)"
             expenseCell.moneySpentLabel.textColor = UIColor.red
             

@@ -17,36 +17,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Categories.defaultPopulate()
 
+        
         let config = Realm.Configuration(
-            // Set the new schema version. This must be greater than the previously used
-            // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 1,
             
-            // Set the block which will be called automatically when opening a Realm with
-            // a schema version lower than the one set above
+            schemaVersion: 1,  //Increment this each time your schema changes
             migrationBlock: { migration, oldSchemaVersion in
-                // We haven’t migrated anything yet, so oldSchemaVersion == 0
+                
                 if (oldSchemaVersion < 1) {
-                    // Realm will automatically detect new properties and removed properties
-                    // And will update the schema on disk automatically
-//                    migration.enumerateObjects(ofType: Expense.className()) { oldObject, newObject in
-//                        // combine name fields into a single field
-//                        let amount = oldObject!["amount"] as! Double
-//                        newObject!["amount"] = amount
-//                    }
+                    
                 }
         })
         
-        // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
         
-        // Now that we've told Realm how to handle the schema change, opening the file
-        // will automatically perform the migration
-//        let realm = try! Realm()
-
+        let realm = try! Realm()
+        
+        Categories.defaultPopulate()
         Expenses.query()
+        
         return true
     }
 
