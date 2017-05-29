@@ -26,6 +26,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         catExpenses = Expenses.queryCategory(category: category!)
         
         self.categoryNavBar.title = category
+        self.expenseTable.allowsSelection = false
         self.expenseTable.reloadData()
     }
 
@@ -45,6 +46,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         return catExpenses.count
     }
     
+    // Cell Height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 96
@@ -54,6 +56,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell: UITableViewCell
         
         // SECTION 1: Budget Bar
@@ -62,17 +65,17 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             let moneySpent: String = String(format: "%.02f", catMoneySpent!)
             let moneyLimit: String = String(format: "%.02f", catMoneyLimit!)
             
-            let budgetCell = expenseTable.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
+            let budgetCell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
             budgetCell.categoryLabel.text = ""
             budgetCell.bar.progress = Float(catMoneySpent! / catMoneyLimit!)
-            budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 6)
+            budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
             budgetCell.moneyLeftLabel.text = "$\(moneySpent) of $\(moneyLimit)"
             
             cell = budgetCell
             
         } else { // SECTION 2: Expenses
             
-            let expenseCell = expenseTable.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseTableViewCell
+            let expenseCell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseTableViewCell
             
             let expense = catExpenses[indexPath.row]
             
@@ -91,7 +94,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        expenseTable.deselectRow(at: indexPath, animated: true)
+        
     }
 
 }
