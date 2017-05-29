@@ -45,11 +45,19 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         return catExpenses.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 96
+        } else {
+            return 72
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         
         // SECTION 1: Budget Bar
-        if (indexPath.section == 0) {
+        if indexPath.section == 0 {
             
             let moneySpent: String = String(format: "%.02f", catMoneySpent!)
             let moneyLimit: String = String(format: "%.02f", catMoneyLimit!)
