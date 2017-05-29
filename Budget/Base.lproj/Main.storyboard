@@ -204,26 +204,60 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-bK-6kr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="zBi-uE-wWc" userLabel="Pie Chart Container">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="338"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="zBi-uE-wWc" userLabel="CircularProgressContainer">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT4-eN-JIb" customClass="PieChartView" customModule="Charts">
-                                            <rect key="frame" x="38" y="36" width="299" height="266"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT4-eN-JIb" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                            <rect key="frame" x="45" y="24" width="285" height="327"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bO-AU-aoa">
+                                                    <rect key="frame" x="108.5" y="148.5" width="68.5" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="4bO-AU-aoa" firstAttribute="centerY" secondItem="bT4-eN-JIb" secondAttribute="centerY" id="YoK-8o-oFa"/>
+                                                <constraint firstItem="4bO-AU-aoa" firstAttribute="centerX" secondItem="bT4-eN-JIb" secondAttribute="centerX" id="ZAG-y8-Fsz"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                                    <real key="value" value="50"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="showFloatingPoint" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="decimalPlaces">
+                                                    <integer key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                                    <color key="value" red="0.10696072049999999" green="0.73985460069999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="innerRingCapStyle">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shouldShowValueText" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="bT4-eN-JIb" secondAttribute="bottom" constant="28" id="5eS-VL-HMF"/>
-                                        <constraint firstItem="bT4-eN-JIb" firstAttribute="leading" secondItem="zBi-uE-wWc" secondAttribute="leadingMargin" constant="30" id="8iF-6W-aBz"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="bT4-eN-JIb" secondAttribute="trailing" constant="30" id="fYe-dG-fog"/>
-                                        <constraint firstItem="bT4-eN-JIb" firstAttribute="top" secondItem="zBi-uE-wWc" secondAttribute="topMargin" constant="28" id="nr0-Cx-lKz"/>
+                                        <constraint firstAttribute="trailing" secondItem="bT4-eN-JIb" secondAttribute="trailing" constant="45" id="CbF-zt-p1d"/>
+                                        <constraint firstItem="bT4-eN-JIb" firstAttribute="top" secondItem="zBi-uE-wWc" secondAttribute="top" constant="24" id="XjH-x6-fh4"/>
+                                        <constraint firstItem="bT4-eN-JIb" firstAttribute="leading" secondItem="zBi-uE-wWc" secondAttribute="leading" constant="45" id="qXR-uP-9Ck"/>
+                                        <constraint firstAttribute="bottom" secondItem="bT4-eN-JIb" secondAttribute="bottom" constant="24" id="vRu-Ml-jOz"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BudgetCell" id="8z0-yq-sHy" customClass="BudgetTableViewCell" customModule="Budget" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="366" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="403" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8z0-yq-sHy" id="amZ-N1-BK4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -297,8 +331,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="budgetTable" destination="ciQ-bK-6kr" id="vNq-It-Ozc"/>
+                        <outlet property="circularProgress" destination="bT4-eN-JIb" id="KjF-Zn-28G"/>
                         <outlet property="menuButton" destination="jYS-5s-OEV" id="fhJ-VT-Wqw"/>
-                        <outlet property="pieChartView" destination="bT4-eN-JIb" id="cHm-Td-SfJ"/>
+                        <outlet property="moneyLabel" destination="4bO-AU-aoa" id="dKp-mx-eiE"/>
                         <segue destination="wYa-Xc-jpW" kind="show" identifier="displayCategory" id="4Zp-BY-dHC"/>
                     </connections>
                 </viewController>
@@ -342,7 +377,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="OSj-QF-l80">
-                                                    <rect key="frame" x="14" y="27" width="346" height="3"/>
+                                                    <rect key="frame" x="14" y="27" width="346" height="2.5"/>
                                                     <color key="backgroundColor" red="0.79736013169999997" green="0.79327110540000001" blue="0.80144915800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="tintColor" red="0.0" green="0.80144915800000005" blue="0.4041323235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>

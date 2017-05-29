@@ -23,7 +23,7 @@ class Expenses {
         let allExpenses = realm.objects(Expense.self)
         
         for expense in allExpenses {
-            print("Category: \(expense.category) -- Amount: \(expense.amount)")
+//            print("Category: \(expense.category) -- Amount: \(expense.amount)")
             
             // Total cost
             totalSpent += expense.amount

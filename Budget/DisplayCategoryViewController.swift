@@ -110,8 +110,4 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-
 }

@@ -12,13 +12,22 @@ class DateHelper {
 
     static let formatter = DateFormatter()
     
+    // Get Month
+    static func printMonth(date: Date) -> String {
+        formatter.dateFormat = "MMMM"
+        
+        let month = formatter.string(from: date)
+        
+        return month
+    }
+    
     // Print Date
     static func printDate(date: Date) -> String {
         formatter.dateFormat = "MMMM dd, yyyy"
         
         let date = formatter.string(from: date)
         
-        return date  // "4:44 PM on June 23, 2016\n"
+        return date
     }
     
     // Print Time

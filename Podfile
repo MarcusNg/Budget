@@ -7,9 +7,9 @@ target 'Budget' do
 
   # Pods for Budget
   pod 'SWRevealViewController', '~> 2.3.0'
-  pod 'Charts', '~> 3.0.1'
   pod 'RealmSwift', '~> 2.7.0'
-
+  pod 'UICircularProgressRing', '~> 1.4.3'
+  
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|

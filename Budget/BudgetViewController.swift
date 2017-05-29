@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import Charts
 import RealmSwift
+import UICircularProgressRing
 
 class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var budgetTable: UITableView!
+    @IBOutlet weak var circularProgress: UICircularProgressRingView!
+    @IBOutlet weak var moneyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NavBar.customizeNavBar(navController: navigationController)
         
         // Visuals
-        setPieChart()
         budgetTable.reloadData()
+        progressRing()
         
         print("Budget VC Loaded")
     }
@@ -54,61 +55,30 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    // Pie Chart
-    func setPieChart() {
-        print("Create Pie Chart...")
-        var entries: [PieChartDataEntry] = []
+    // Progress Ring
+    func progressRing() {
+        let moneySpent: String = String(format: "%.02f", Categories.totalMoneyLimit - Expenses.totalSpent)
+        let moneyLimit: String = String(format: "%.02f", Categories.totalMoneyLimit)
         
-//         Add each categoryTotal values to the PieChartDataEntries
-        for cat in Categories.allCategories {
-            if cat.getMoneySpent() != 0 {
-                entries.append(PieChartDataEntry(value: cat.getMoneySpent(), label: ""))
-            }
-        }
-        
-        
-        let set: PieChartDataSet = PieChartDataSet(values: entries, label: "Budget")
-        
-        // ------Colors------
-        var colors: [UIColor] = []
-        
-        for cat in Categories.allCategories {
-            colors.append(NavBar.RGB(r: Int(arc4random_uniform(256)), g: Int(arc4random_uniform(256)), b: Int(arc4random_uniform(256))))
-        }
-        
-        set.colors = colors
-//         ------------------
-
-        
-        let data: PieChartData = PieChartData(dataSet: set)
-        
-        pieChartView.data = data
-        
-        // Center text
-        pieChartView.centerText = "\(Categories.totalMoneyLimit)"
-        
-        // No data text
-        pieChartView.noDataText = "Please enter an expense"
-        
-        // Description
-        pieChartView.chartDescription?.text = ""
-        
-        // % Values
-        pieChartView.usePercentValuesEnabled = true;
-        
-        // Disable Legend
-        let legend: Legend = pieChartView.legend
-        legend.enabled = false
-        
-        // Refresh chart
-        pieChartView.invalidateIntrinsicContentSize()
-        
+        moneyLabel.numberOfLines = 5
+        moneyLabel.text = "\(DateHelper.printMonth(date: Date()))\nMoney Left:\n$\(moneySpent)\nof\n$\(moneyLimit)"
+        circularProgress.value = CGFloat(Expenses.totalSpent)
+        circularProgress.maxValue = CGFloat(Categories.totalMoneyLimit)
+        circularProgress.outerRingWidth = 2
+        circularProgress.innerRingWidth = 50
+        circularProgress.innerRingCapStyle = 1
+        circularProgress.shouldShowValueText = false
+        circularProgress.showFloatingPoint = true
+        circularProgress.decimalPlaces = 2
     }
     
     // Run when segue unwinds
     @IBAction func unwindToBudget(_ segue: UIStoryboardSegue) {
-        setPieChart()
         budgetTable.reloadData()
+        progressRing()
+        circularProgress.setProgress(value: CGFloat(Expenses.totalSpent), animationDuration: 2.0) {
+        }
+
     }
     
     // Segue to category

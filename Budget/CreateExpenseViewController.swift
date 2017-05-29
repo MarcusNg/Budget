@@ -39,13 +39,15 @@ class CreateExpenseViewController: UIViewController {
         
         try! realm.write {
             realm.add(expense)
-            print("Added: " + expense.category + " -- " + String(expense.amount))
+//            print("Added: " + expense.category + " -- " + String(expense.amount))
             
             // Update money spent
             Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
 
-            // Time test
-            print(expense.date)
+            // Update total expenses
+            Expenses.totalSpent += expense.amount
+
+//            print(expense.date)
         }
         
     }

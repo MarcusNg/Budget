@@ -1,25 +1,23 @@
 PODS:
-  - Charts (3.0.1):
-    - Charts/Core (= 3.0.1)
-  - Charts/Core (3.0.1)
   - Realm (2.7.0):
     - Realm/Headers (= 2.7.0)
   - Realm/Headers (2.7.0)
   - RealmSwift (2.7.0):
     - Realm (= 2.7.0)
   - SWRevealViewController (2.3.0)
+  - UICircularProgressRing (1.4.3)
 
 DEPENDENCIES:
-  - Charts (~> 3.0.1)
   - RealmSwift (~> 2.7.0)
   - SWRevealViewController (~> 2.3.0)
+  - UICircularProgressRing (~> 1.4.3)
 
 SPEC CHECKSUMS:
-  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
   Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  UICircularProgressRing: f90123562efc555f861f9955384a3450e81e82c0
 
-PODFILE CHECKSUM: 5579e23eff8415c4d07570bd589ae9a3582f4e03
+PODFILE CHECKSUM: 111ec14ac57cb79b621d2b0aa7f08a2c92b66fc7
 
 COCOAPODS: 1.2.1
