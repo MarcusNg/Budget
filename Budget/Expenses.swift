@@ -12,7 +12,6 @@ import RealmSwift
 class Expenses {
     
     static var totalSpent: Double = 0
-//    static var catTotalSpent: Double = 0
     
     static let realm = try! Realm()
     
@@ -37,22 +36,42 @@ class Expenses {
         
     }
     
-    // Load specific category
-    static func queryCategory(category: String) -> [Expense] {
-        var categoryExpenses: [Expense] = []
-//        catTotalSpent = 0
-        print("Query \(category) Expenses...")
+    // Get category dates
+    static func queryDates(category: String) -> [String] {
+        var dates: [String] = []
+        print("Query \(category) Dates...")
         
         // Retrieve
         let catExpenses = realm.objects(Expense.self).filter("category = '\(category)'")
         
         for expense in catExpenses {
-            categoryExpenses.append(expense)
-//            catTotalSpent += expense.amount
+            if !dates.contains(DateHelper.printDate(date: expense.date)) {
+                dates.append(DateHelper.printDate(date: expense.date))
+            }
         }
         
-        return categoryExpenses
+        return dates
     }
+    
 
+    // Load specific category with dates
+    static func queryCategoryDateExpense(category: String) -> [String : [Expense]] {
+        var dateExpenses: [String : [Expense]] = [:]
+        print("Query \(category) Expenses...")
+
+        let catExpenses = realm.objects(Expense.self).filter("category = '\(category)'")
+        
+        for expense in catExpenses {
+            // If expense array is empty, then add it
+            if (dateExpenses[DateHelper.printDate(date: expense.date)] == nil) {
+                dateExpenses.updateValue([expense], forKey: DateHelper.printDate(date: expense.date))
+            } else { // Update key,value pair
+                var expenses: [Expense] = dateExpenses[DateHelper.printDate(date: expense.date)]!
+                expenses.append(expense)
+                dateExpenses.updateValue(expenses, forKey: DateHelper.printDate(date: expense.date))
+            }
+        }
+        return dateExpenses
+    }
     
 }

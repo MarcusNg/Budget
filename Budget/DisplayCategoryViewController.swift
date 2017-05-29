@@ -16,14 +16,15 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     var category: String?
     var catMoneySpent: Double?
     var catMoneyLimit: Double?
-    var catExpenses: [Expense] = []
-    
+    var dates: [String] = []
+    var dateExpenses: [String : [Expense]] = [:] // Contain dates paired with matching expenses
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        catExpenses = Expenses.queryCategory(category: category!)
+        dates = Expenses.queryDates(category: category!)
+        dateExpenses = Expenses.queryCategoryDateExpense(category: category!)
         
         self.categoryNavBar.title = category
         self.expenseTable.allowsSelection = false
@@ -36,14 +37,14 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return dates.count + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
         }
-        return catExpenses.count
+        return dateExpenses[dates[section - 1]]!.count
     }
     
     // Cell Height
@@ -53,6 +54,14 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         } else {
             return 72
         }
+    }
+    
+    // Section Header Title
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return ""
+        }
+        return dates[section - 1]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,13 +85,12 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         } else { // SECTION 2: Expenses
             
             let expenseCell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseTableViewCell
+
+            let expense = dateExpenses[dates[indexPath.section - 1]]?[indexPath.row]
             
-            let expense = catExpenses[indexPath.row]
+            let moneySpent: String = String(format: "%.02f", expense!.amount)
             
-            let moneySpent: String = String(format: "%.02f", expense.amount)
-            
-            expenseCell.noteLabel.text = expense.note
-            expenseCell.dateLabel.text = DateHelper.printDate(date: expense.date)
+            expenseCell.noteLabel.text = expense!.note
             expenseCell.moneySpentLabel.text = "- $\(moneySpent)"
             expenseCell.moneySpentLabel.textColor = UIColor.red
             

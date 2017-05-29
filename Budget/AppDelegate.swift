@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let realm = try! Realm()
         
         Categories.defaultPopulate()
+        Categories.calcTotalMoneyLimit()
         Expenses.query()
         
         return true

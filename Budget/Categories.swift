@@ -15,6 +15,7 @@ class Categories {
     // Clothing, Entertainment, Food, Health, Housing, Other, Transportation
 
     static var allCategories: [Category] = []
+    static var totalMoneyLimit: Double = 0
     
     static func defaultPopulate() {
         allCategories.append(Category(newCategory: "Clothing", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.blue))
@@ -50,14 +51,12 @@ class Categories {
         }
     }
     
-//    // Progress is moneySpent/moneyLimit
-//    static func updateProgress(category: String, moneySpent) {
-//        for cat in allCategories {
-//            if cat.getCategory() == category {
-//                cat.setProgress()
-//            }
-//        }
-//    }
+    static func calcTotalMoneyLimit() {
+        totalMoneyLimit = 0
+        for cat in allCategories {
+            totalMoneyLimit += cat.getMoneyLimit()
+        }
+    }
     
     static func updateColor(category: String, color: UIColor) {
         for cat in allCategories {

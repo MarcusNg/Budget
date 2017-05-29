@@ -85,7 +85,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         pieChartView.data = data
         
         // Center text
-        pieChartView.centerText = "%"
+        pieChartView.centerText = "\(Categories.totalMoneyLimit)"
         
         // No data text
         pieChartView.noDataText = "Please enter an expense"
@@ -152,13 +152,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-        // Bring to list of previous category purchases for that month
-//        print("Tapped \(indexPath)")
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
         performSegue(withIdentifier: "displayCategory", sender: self)
-
-        //print(Categories.allCategories[indexPath.row].getCategory())
     }
 
 }
