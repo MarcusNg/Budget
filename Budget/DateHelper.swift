@@ -21,6 +21,15 @@ class DateHelper {
         return month
     }
     
+    // Get Year
+    static func printYear(date: Date) -> String {
+        formatter.dateFormat = "yyyy"
+        
+        let year = formatter.string(from: date)
+        
+        return year
+    }
+    
     // Print Date
     static func printDate(date: Date) -> String {
         formatter.dateFormat = "MMMM dd, yyyy"

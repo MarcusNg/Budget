@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -204,15 +205,46 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-bK-6kr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="zBi-uE-wWc" userLabel="CircularProgressContainer">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="lTJ-zn-fdQ" userLabel="HeaderContainer">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT4-eN-JIb" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
-                                            <rect key="frame" x="45" y="24" width="285" height="327"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugx-L1-omR" userLabel="Month">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bO-AU-aoa">
-                                                    <rect key="frame" x="108.5" y="148.5" width="68.5" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNz-jN-tWh">
+                                                    <rect key="frame" x="322.5" y="7" width="30" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <state key="normal" title="&gt;"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsm-n8-1TA">
+                                                    <rect key="frame" x="22.5" y="7" width="30" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <state key="normal" title="&lt;"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zr1-id-G98">
+                                                    <rect key="frame" x="75" y="13" width="225" height="31.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="Zr1-id-G98" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.6" id="3Ii-3g-lkN"/>
+                                                <constraint firstItem="Zr1-id-G98" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" id="4ms-L5-hv1"/>
+                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="BJ6-9q-P8h"/>
+                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" multiplier="0.2" id="LiJ-It-nSn"/>
+                                                <constraint firstItem="Zr1-id-G98" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="SHA-Bk-lDQ"/>
+                                                <constraint firstItem="qNz-jN-tWh" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="Y25-eD-qI9"/>
+                                                <constraint firstItem="qNz-jN-tWh" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" multiplier="1.8" id="utR-PH-Agw"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SbR-jT-4R4" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                            <rect key="frame" x="67" y="85" width="241" height="240"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hoC-Lu-mT4">
+                                                    <rect key="frame" x="86" y="105" width="69" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -220,15 +252,17 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="4bO-AU-aoa" firstAttribute="centerY" secondItem="bT4-eN-JIb" secondAttribute="centerY" id="YoK-8o-oFa"/>
-                                                <constraint firstItem="4bO-AU-aoa" firstAttribute="centerX" secondItem="bT4-eN-JIb" secondAttribute="centerX" id="ZAG-y8-Fsz"/>
+                                                <constraint firstItem="hoC-Lu-mT4" firstAttribute="centerY" secondItem="SbR-jT-4R4" secondAttribute="centerY" id="6mo-uE-vwn"/>
+                                                <constraint firstAttribute="height" constant="240" id="GaZ-VN-MWl"/>
+                                                <constraint firstAttribute="width" constant="241" id="Ywo-ly-7Fk"/>
+                                                <constraint firstItem="hoC-Lu-mT4" firstAttribute="centerX" secondItem="SbR-jT-4R4" secondAttribute="centerX" id="fIY-rN-nEw"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
                                                     <real key="value" value="3"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
-                                                    <real key="value" value="50"/>
+                                                    <real key="value" value="20"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="showFloatingPoint" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="decimalPlaces">
@@ -244,15 +278,23 @@
                                                     <integer key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shouldShowValueText" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="outerRingCapStyle">
+                                                    <integer key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="bT4-eN-JIb" secondAttribute="trailing" constant="45" id="CbF-zt-p1d"/>
-                                        <constraint firstItem="bT4-eN-JIb" firstAttribute="top" secondItem="zBi-uE-wWc" secondAttribute="top" constant="24" id="XjH-x6-fh4"/>
-                                        <constraint firstItem="bT4-eN-JIb" firstAttribute="leading" secondItem="zBi-uE-wWc" secondAttribute="leading" constant="45" id="qXR-uP-9Ck"/>
-                                        <constraint firstAttribute="bottom" secondItem="bT4-eN-JIb" secondAttribute="bottom" constant="24" id="vRu-Ml-jOz"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ugx-L1-omR" secondAttribute="trailing" id="2ed-pi-rAv"/>
+                                        <constraint firstItem="Ugx-L1-omR" firstAttribute="top" secondItem="lTJ-zn-fdQ" secondAttribute="top" id="3pr-SW-Hbi"/>
+                                        <constraint firstItem="SbR-jT-4R4" firstAttribute="centerX" secondItem="lTJ-zn-fdQ" secondAttribute="centerX" id="Gvn-mZ-sGF"/>
+                                        <constraint firstAttribute="bottom" secondItem="SbR-jT-4R4" secondAttribute="bottom" constant="50" id="RSI-wL-sho"/>
+                                        <constraint firstItem="Ugx-L1-omR" firstAttribute="leading" secondItem="lTJ-zn-fdQ" secondAttribute="leading" id="WJZ-T9-U3Z"/>
+                                        <constraint firstItem="SbR-jT-4R4" firstAttribute="top" secondItem="Ugx-L1-omR" secondAttribute="bottom" constant="29" id="btR-IG-U4Z"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -314,10 +356,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ciQ-bK-6kr" secondAttribute="trailing" id="ChE-JC-qhQ"/>
-                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="bottom" secondItem="ecg-Ps-p1t" secondAttribute="top" id="E7v-W3-K3j"/>
-                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="top" secondItem="oL6-Xf-kun" secondAttribute="top" id="Kob-lH-IE5"/>
-                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="leading" secondItem="oL6-Xf-kun" secondAttribute="leading" id="csF-E2-KgL"/>
+                            <constraint firstAttribute="trailing" secondItem="ciQ-bK-6kr" secondAttribute="trailing" id="PpZ-W1-hTA"/>
+                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="leading" secondItem="oL6-Xf-kun" secondAttribute="leading" id="aPG-dr-sE4"/>
+                            <constraint firstItem="ecg-Ps-p1t" firstAttribute="top" secondItem="ciQ-bK-6kr" secondAttribute="bottom" id="hAt-iD-fRI"/>
+                            <constraint firstItem="ciQ-bK-6kr" firstAttribute="top" secondItem="EUv-AF-vDl" secondAttribute="bottom" id="sWX-VZ-B3l"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -331,9 +373,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="budgetTable" destination="ciQ-bK-6kr" id="vNq-It-Ozc"/>
-                        <outlet property="circularProgress" destination="bT4-eN-JIb" id="KjF-Zn-28G"/>
+                        <outlet property="circularProgress" destination="SbR-jT-4R4" id="5A9-pn-AOg"/>
                         <outlet property="menuButton" destination="jYS-5s-OEV" id="fhJ-VT-Wqw"/>
-                        <outlet property="moneyLabel" destination="4bO-AU-aoa" id="dKp-mx-eiE"/>
+                        <outlet property="moneyLabel" destination="hoC-Lu-mT4" id="S7w-RN-zKW"/>
+                        <outlet property="monthLabel" destination="Zr1-id-G98" id="jz8-UW-YgJ"/>
                         <segue destination="wYa-Xc-jpW" kind="show" identifier="displayCategory" id="4Zp-BY-dHC"/>
                     </connections>
                 </viewController>
@@ -530,7 +573,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Expense" id="Hrd-T0-yEK">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="dKH-4w-Bs7">
+                        <barButtonItem key="rightBarButtonItem" id="dKH-4w-Bs7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ogH-qd-G9K">
                                 <rect key="frame" x="269" y="7" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -16,6 +16,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var budgetTable: UITableView!
     @IBOutlet weak var circularProgress: UICircularProgressRingView!
     @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NavBar.customizeNavBar(navController: navigationController)
         
         // Visuals
+        monthLabel.text = "\(DateHelper.printMonth(date: Date())) \(DateHelper.printYear(date: Date()))"
         budgetTable.reloadData()
         progressRing()
         
@@ -60,16 +62,22 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let moneySpent: String = String(format: "%.02f", Categories.totalMoneyLimit - Expenses.totalSpent)
         let moneyLimit: String = String(format: "%.02f", Categories.totalMoneyLimit)
         
-        moneyLabel.numberOfLines = 5
-        moneyLabel.text = "\(DateHelper.printMonth(date: Date()))\nMoney Left:\n$\(moneySpent)\nof\n$\(moneyLimit)"
+        moneyLabel.numberOfLines = 3
+        moneyLabel.text = "$\(moneySpent)\nleft of\n$\(moneyLimit)"
+        
+        circularProgress.innerRingColor = UIColor.green
+        circularProgress.outerRingColor = UIColor.lightGray
+        
         circularProgress.value = CGFloat(Expenses.totalSpent)
         circularProgress.maxValue = CGFloat(Categories.totalMoneyLimit)
-        circularProgress.outerRingWidth = 2
-        circularProgress.innerRingWidth = 50
+        
+        circularProgress.outerRingWidth = 4
+        circularProgress.innerRingWidth = 25
+        
+        circularProgress.outerRingCapStyle = 1
         circularProgress.innerRingCapStyle = 1
+        
         circularProgress.shouldShowValueText = false
-        circularProgress.showFloatingPoint = true
-        circularProgress.decimalPlaces = 2
     }
     
     // Run when segue unwinds
