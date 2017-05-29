@@ -85,6 +85,9 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             let budgetCell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
             budgetCell.categoryLabel.text = ""
             budgetCell.bar.progress = Float(catMoneySpent! / catMoneyLimit!)
+            if budgetCell.bar.progress > 0.85 { //+85% red
+                budgetCell.bar.tintColor = UIColor.red
+            }
             budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
             budgetCell.moneyLeftLabel.text = "$\(moneySpent) of $\(moneyLimit)"
             

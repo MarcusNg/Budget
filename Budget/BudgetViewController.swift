@@ -61,11 +61,16 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func progressRing() {
         let moneySpent: String = String(format: "%.02f", Categories.totalMoneyLimit - Expenses.totalSpent)
         let moneyLimit: String = String(format: "%.02f", Categories.totalMoneyLimit)
+        let progress: Double = Expenses.totalSpent / Categories.totalMoneyLimit
         
         moneyLabel.numberOfLines = 3
         moneyLabel.text = "$\(moneySpent)\nleft of\n$\(moneyLimit)"
         
-        circularProgress.innerRingColor = UIColor.green
+        if progress < 0.85 { // Bar turns red 85%+
+            circularProgress.innerRingColor = UIColor.green
+        } else {
+            circularProgress.innerRingColor = UIColor.red
+        }
         circularProgress.outerRingColor = UIColor.lightGray
         
         circularProgress.value = CGFloat(Expenses.totalSpent)
@@ -124,6 +129,9 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.categoryLabel.text = category.getCategory() // Category
         cell.bar.progress = Float(category.getProgress())
+        if cell.bar.progress > 0.85 { // +85% red
+            cell.bar.tintColor = UIColor.red
+        }
         cell.moneyLeftLabel.text = "$" + moneySpent + " of $" + moneyLimit // $ of $
 
         return cell
