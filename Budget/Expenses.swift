@@ -50,7 +50,12 @@ class Expenses {
             }
         }
         
-        return dates
+        // Sort by time (Most recent)
+        let sortedDates = dates.sorted {
+            $0.compare($1, options: .numeric) == .orderedDescending
+        }
+        
+        return sortedDates
     }
     
 
@@ -71,6 +76,7 @@ class Expenses {
                 dateExpenses.updateValue(expenses, forKey: DateHelper.printDate(date: expense.date))
             }
         }
+        
         return dateExpenses
     }
     

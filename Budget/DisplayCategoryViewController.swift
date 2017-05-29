@@ -26,6 +26,14 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         dates = Expenses.queryDates(category: category!)
         dateExpenses = Expenses.queryCategoryDateExpense(category: category!)
         
+        for date in dates {
+            let dateExp = dateExpenses[date]?.sorted {
+                $0.date > $1.date
+            }
+            
+            dateExpenses[date] = dateExp
+        }
+        
         self.categoryNavBar.title = category
         self.expenseTable.allowsSelection = false
         self.expenseTable.reloadData()
