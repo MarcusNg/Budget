@@ -129,7 +129,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.categoryLabel.text = category.getCategory() // Category
         cell.bar.progress = Float(category.getProgress())
-        if cell.bar.progress > 0.85 { // +85% red
+        if cell.bar.progress >= 0.85 { // +85% red
             cell.bar.tintColor = UIColor.red
         }
         cell.moneyLeftLabel.text = "$" + moneySpent + " of $" + moneyLimit // $ of $
