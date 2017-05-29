@@ -99,6 +99,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             let moneySpent: String = String(format: "%.02f", expense!.amount)
             
             expenseCell.noteLabel.text = expense!.note
+            expenseCell.timeLabel.text = DateHelper.printTime(date: expense!.date)
             expenseCell.moneySpentLabel.text = "- $\(moneySpent)"
             expenseCell.moneySpentLabel.textColor = UIColor.red
             

@@ -9,53 +9,27 @@
 import Foundation
 
 class DateHelper {
-    
-    static let calendar = Calendar.current
-    
-    // Date
-    static func getMonth(date: Date) -> Int {
-        let month = calendar.component(.month, from: date)
-        return month;
-    }
-    
-    static func getDay(date: Date) -> Int {
-        let day = calendar.component(.day, from: date)
-        return day;
-    }
-    
-    static func getYear(date: Date) -> Int {
-        let year = calendar.component(.year, from: date)
-        return year;
-    }
-    
-    // Time
-    static func getHour(date: Date) -> Int {
-        let hour = calendar.component(.hour, from: date)
-        return hour;
-    }
-    
-    static func getMinute(date: Date) -> Int {
-        let minute = calendar.component(.minute, from: date)
-        return minute;
-    }
-    
-    static func getSecond(date: Date) -> Int {
-        let second = calendar.component(.second, from: date)
-        return second;
-    }
+
+    static let formatter = DateFormatter()
     
     // Print Date
     static func printDate(date: Date) -> String {
-        var retDate: String = ""
-        retDate += "\(getYear(date: date))-\(getMonth(date: date))-\(getDay(date: date))"
-        return retDate
+        formatter.dateFormat = "MMMM dd, yyyy"
+        
+        let date = formatter.string(from: date)
+        
+        return date  // "4:44 PM on June 23, 2016\n"
     }
     
     // Print Time
     static func printTime(date: Date) -> String {
-        var retTime: String = ""
-        retTime += "\(getHour(date: date)):\(getMinute(date: date)):\(getSecond(date: date))"
-        return retTime
+        formatter.dateFormat = "h:mm a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        
+        let time = formatter.string(from: date)
+        
+        return time
     }
     
 }

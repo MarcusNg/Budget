@@ -369,41 +369,55 @@
                                             <outlet property="moneyLeftLabel" destination="6ph-UW-OSs" id="056-Kj-39h"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenseCell" rowHeight="64" id="9qp-Al-tGq" customClass="ExpenseTableViewCell" customModule="Budget" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="375" height="64"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpenseCell" rowHeight="72" id="9qp-Al-tGq" customClass="ExpenseTableViewCell" customModule="Budget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9qp-Al-tGq" id="LMv-Mq-tCU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3k-T0-EsQ">
-                                                    <rect key="frame" x="17" y="19" width="238" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- $0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9D-De-tGc">
-                                                    <rect key="frame" x="263" y="19" width="98" height="24"/>
+                                                    <rect key="frame" x="252" y="24" width="106" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="98" id="nAl-UD-PiM"/>
+                                                        <constraint firstAttribute="width" constant="106" id="Kwa-VX-nCz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0l3-pf-LNG">
+                                                    <rect key="frame" x="17" y="40" width="227" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3k-T0-EsQ">
+                                                    <rect key="frame" x="17" y="8" width="227" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="7ee-z3-Ycp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="centerY" secondItem="LMv-Mq-tCU" secondAttribute="centerY" id="fFy-vG-Ol1"/>
-                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="leading" secondItem="LMv-Mq-tCU" secondAttribute="leadingMargin" constant="9" id="mEi-UV-k0O"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="C9D-De-tGc" secondAttribute="trailing" constant="6" id="p8r-V5-Tmh"/>
-                                                <constraint firstItem="C9D-De-tGc" firstAttribute="leading" secondItem="d3k-T0-EsQ" secondAttribute="trailing" constant="8" symbolic="YES" id="rgK-pG-r40"/>
-                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="bottom" secondItem="C9D-De-tGc" secondAttribute="bottom" id="tBf-AF-gJ9"/>
-                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="top" secondItem="C9D-De-tGc" secondAttribute="top" id="teV-es-Emv"/>
+                                                <constraint firstItem="C9D-De-tGc" firstAttribute="centerY" secondItem="LMv-Mq-tCU" secondAttribute="centerY" id="1jT-j0-4a5"/>
+                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="leading" secondItem="0l3-pf-LNG" secondAttribute="leading" id="5dD-1s-IER"/>
+                                                <constraint firstItem="0l3-pf-LNG" firstAttribute="top" secondItem="d3k-T0-EsQ" secondAttribute="bottom" constant="8" symbolic="YES" id="A0a-0z-nQs"/>
+                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="leading" secondItem="LMv-Mq-tCU" secondAttribute="leadingMargin" constant="9" id="BqX-pK-BM3"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0l3-pf-LNG" secondAttribute="bottom" constant="-0.5" id="EXp-3E-ox6"/>
+                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="trailing" secondItem="0l3-pf-LNG" secondAttribute="trailing" id="Efa-wn-B7A"/>
+                                                <constraint firstItem="C9D-De-tGc" firstAttribute="top" secondItem="LMv-Mq-tCU" secondAttribute="topMargin" constant="16" id="STT-MF-UnJ"/>
+                                                <constraint firstItem="d3k-T0-EsQ" firstAttribute="top" secondItem="LMv-Mq-tCU" secondAttribute="topMargin" id="upJ-6d-BII"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="C9D-De-tGc" secondAttribute="trailing" constant="9" id="urA-PW-Eio"/>
+                                                <constraint firstItem="C9D-De-tGc" firstAttribute="leading" secondItem="0l3-pf-LNG" secondAttribute="trailing" constant="8" id="vdS-pt-WIC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="moneySpentLabel" destination="C9D-De-tGc" id="hny-cb-16E"/>
                                             <outlet property="noteLabel" destination="d3k-T0-EsQ" id="2SB-gu-m8l"/>
+                                            <outlet property="timeLabel" destination="0l3-pf-LNG" id="5Lp-8W-7Yk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
