@@ -15,5 +15,6 @@ class Expense: Object {
     dynamic var category: String = ""
     dynamic var note: String = ""
     dynamic var date: Date = Date()
+    dynamic var monthYear: String = ""
     
 }

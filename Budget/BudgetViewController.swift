@@ -27,7 +27,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NavBar.customizeNavBar(navController: navigationController)
         
         // Visuals
-        monthLabel.text = "\(DateHelper.printMonth(date: Date())) \(DateHelper.printYear(date: Date()))"
+        monthLabel.text = DateHelper.printMonthYear(date: Date())
         budgetTable.reloadData()
         progressRing()
         
@@ -61,19 +61,22 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func progressRing() {
         let moneySpent: String = String(format: "%.02f", Categories.totalMoneyLimit - Expenses.totalSpent)
         let moneyLimit: String = String(format: "%.02f", Categories.totalMoneyLimit)
-        let progress: Double = Expenses.totalSpent / Categories.totalMoneyLimit
+        let progress: Double = Categories.totalMoneyLimit - Expenses.totalSpent / Categories.totalMoneyLimit
         
         moneyLabel.numberOfLines = 3
         moneyLabel.text = "$\(moneySpent)\nleft of\n$\(moneyLimit)"
         
-        if progress < 0.85 { // Bar turns red 85%+
+        if progress > 0.15 { // Bar turns red 15%-
             circularProgress.innerRingColor = UIColor.green
         } else {
             circularProgress.innerRingColor = UIColor.red
         }
+        
+        circularProgress.innerRingSpacing = 0
+        
         circularProgress.outerRingColor = UIColor.lightGray
         
-        circularProgress.value = CGFloat(Expenses.totalSpent)
+        circularProgress.value = CGFloat(Categories.totalMoneyLimit - Expenses.totalSpent)
         circularProgress.maxValue = CGFloat(Categories.totalMoneyLimit)
         
         circularProgress.outerRingWidth = 4
@@ -89,7 +92,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func unwindToBudget(_ segue: UIStoryboardSegue) {
         budgetTable.reloadData()
         progressRing()
-        circularProgress.setProgress(value: CGFloat(Expenses.totalSpent), animationDuration: 2.0) {
+        circularProgress.setProgress(value: CGFloat(Categories.totalMoneyLimit - Expenses.totalSpent), animationDuration: 2.0) {
         }
 
     }

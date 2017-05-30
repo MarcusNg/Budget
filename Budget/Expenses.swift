@@ -36,10 +36,28 @@ class Expenses {
         
     }
     
+    // Load expenses for specified month
+    static func queryMonth(monthYear: String) {
+        print("Query Expenses: \(monthYear)")
+        
+        // Retrieve expenses
+        let monthExpenses = realm.objects(Expense.self).filter("monthYear = '\(monthYear)'")
+        
+        for expense in monthExpenses {
+            print(expense)
+            // Total cost
+            totalSpent += expense.amount
+            
+            // Update money spent
+            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
+        }
+        
+    }
+    
     // Get category dates
     static func queryDates(category: String) -> [String] {
         var dates: [String] = []
-        print("Query \(category) Dates...")
+//        print("Query \(category) Dates...")
         
         // Retrieve
         let catExpenses = realm.objects(Expense.self).filter("category = '\(category)'")

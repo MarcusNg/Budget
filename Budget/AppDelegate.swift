@@ -33,9 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let realm = try! Realm()
         
+        // CLEAR DATABASE
+////        try! realm.write {
+////            realm.deleteAll()
+////        }
+        
         Categories.defaultPopulate()
         Categories.calcTotalMoneyLimit()
-        Expenses.query()
+//        Expenses.query()
+        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: Date()))
         
         return true
     }

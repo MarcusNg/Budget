@@ -34,6 +34,7 @@ class CreateExpenseViewController: UIViewController {
         expense.amount = amount
         expense.note = note
         expense.date = Date()
+        expense.monthYear = DateHelper.printMonthYear(date: Date())
         
         let realm = try! Realm()
         
