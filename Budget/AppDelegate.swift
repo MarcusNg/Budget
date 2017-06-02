@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Categories.defaultPopulate()
         Categories.calcTotalMoneyLimit()
-//        Expenses.query()
+
         Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: Date()))
         
         return true

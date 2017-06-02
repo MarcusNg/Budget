@@ -15,7 +15,7 @@ class Expenses {
     
     static let realm = try! Realm()
     
-    // Load all expenses
+    // Load ALL expenses -- Could be used for an overview of ALL expenses
     static func query() {
         print("Query Expenses...")
         
@@ -31,12 +31,10 @@ class Expenses {
             // Update money spent
             Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
         }
-        
-        // TODO: Add time filtering
-        
+ 
     }
     
-    // Load expenses for specified month
+    // Load expenses for specified month -- BudgetVC
     static func queryMonth(monthYear: String) {
         print("Query Expenses: \(monthYear)")
         
@@ -54,13 +52,14 @@ class Expenses {
         
     }
     
-    // Get category dates
-    static func queryDates(category: String) -> [String] {
+    // Get dates of specific category expenses -- DisplayCategoryVC
+    static func queryDates(category: String, monthYear: String) -> [String] {
         var dates: [String] = []
-//        print("Query \(category) Dates...")
+        
+        print("Query \(category) \(monthYear) Dates...")
         
         // Retrieve
-        let catExpenses = realm.objects(Expense.self).filter("category = '\(category)'")
+        let catExpenses = realm.objects(Expense.self).filter("category = '\(category)' AND monthYear = '\(monthYear)'")
         
         for expense in catExpenses {
             if !dates.contains(DateHelper.printDate(date: expense.date)) {
@@ -76,13 +75,13 @@ class Expenses {
         return sortedDates
     }
     
-
-    // Load specific category with dates
-    static func queryCategoryDateExpense(category: String) -> [String : [Expense]] {
+    // Load specific category with dates -- DisplayCategoryVC
+    static func queryCategoryDateExpense(category: String, monthYear: String) -> [String : [Expense]] {
         var dateExpenses: [String : [Expense]] = [:]
-        print("Query \(category) Expenses...")
+        
+        print("Query \(category) \(monthYear) Expenses...")
 
-        let catExpenses = realm.objects(Expense.self).filter("category = '\(category)'")
+        let catExpenses = realm.objects(Expense.self).filter("category = '\(category)' AND monthYear = '\(monthYear)'")
         
         for expense in catExpenses {
             // If expense array is empty, then add it

@@ -16,15 +16,15 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     var category: String?
     var catMoneySpent: Double?
     var catMoneyLimit: Double?
-    var dates: [String] = []
+    var dates: [String] = [] // Array of dates from expenses (current month)
     var dateExpenses: [String : [Expense]] = [:] // Contain dates paired with matching expenses
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        dates = Expenses.queryDates(category: category!)
-        dateExpenses = Expenses.queryCategoryDateExpense(category: category!)
+        dates = Expenses.queryDates(category: category!, monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
+        dateExpenses = Expenses.queryCategoryDateExpense(category: category!, monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
         
         for date in dates {
             let dateExp = dateExpenses[date]?.sorted {

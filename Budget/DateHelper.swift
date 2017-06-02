@@ -12,6 +12,17 @@ class DateHelper {
 
     static let formatter = DateFormatter()
     
+    // Months
+    static var selectedDate = Date()
+    
+    static func prevMonth() {
+        selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: selectedDate)!
+    }
+    
+    static func nextMonth() {
+        selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: selectedDate)!
+    }
+    
     // Get Month
     static func printMonth(date: Date) -> String {
         formatter.dateFormat = "MMMM"

@@ -22,15 +22,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        // Navigation
-        slideMenu(button: menuButton)
-        NavBar.customizeNavBar(navController: navigationController)
         
-        // Visuals
-        monthLabel.text = DateHelper.printMonthYear(date: Date())
-        budgetTable.reloadData()
-        progressRing()
-        
+        setup()
         print("Budget VC Loaded")
     }
 
@@ -55,6 +48,18 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             
         }
+    }
+    
+    // Setup VC
+    func setup() {
+        // Navigation
+        slideMenu(button: menuButton)
+        NavBar.customizeNavBar(navController: navigationController)
+        
+        // Visuals
+        monthLabel.text = DateHelper.printMonthYear(date: DateHelper.selectedDate)
+        budgetTable.reloadData()
+        progressRing()
     }
     
     // Progress Ring
@@ -117,7 +122,26 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    // Table View -- sort by most highest progress
+    // Previous Month Button
+    @IBAction func prevMonthButton(_ sender: Any) {
+        DateHelper.prevMonth()
+        Categories.defaultPopulate()
+        Categories.calcTotalMoneyLimit()
+        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: Date()))
+        setup()
+    }
+    
+    // Next Month Button
+    @IBAction func nextMonthButton(_ sender: Any) {
+        DateHelper.nextMonth()
+        Categories.defaultPopulate()
+        Categories.calcTotalMoneyLimit()
+        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: Date()))
+        setup()
+    }
+    
+    
+    // Table View -- sort by highest progress
     func tableView(_ tableView: UITableView, numberOfRowsInSection section:Int) -> Int {
         return Categories.allCategories.count
     }

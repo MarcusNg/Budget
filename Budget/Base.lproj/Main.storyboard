@@ -213,14 +213,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNz-jN-tWh">
-                                                    <rect key="frame" x="322.5" y="7" width="30" height="42"/>
+                                                    <rect key="frame" x="315" y="5.5" width="45" height="45"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <state key="normal" title="&gt;"/>
+                                                    <connections>
+                                                        <action selector="nextMonthButton:" destination="Sju-xu-zb8" eventType="touchUpInside" id="icp-ld-7vY"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsm-n8-1TA">
-                                                    <rect key="frame" x="22.5" y="7" width="30" height="42"/>
+                                                    <rect key="frame" x="22.5" y="6.5" width="45" height="45"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <state key="normal" title="&lt;"/>
+                                                    <connections>
+                                                        <action selector="prevMonthButton:" destination="Sju-xu-zb8" eventType="touchUpInside" id="Wl6-Lt-UYI"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zr1-id-G98">
                                                     <rect key="frame" x="75" y="12" width="225" height="32"/>
@@ -233,10 +239,14 @@
                                             <constraints>
                                                 <constraint firstItem="Zr1-id-G98" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.6" id="3Ii-3g-lkN"/>
                                                 <constraint firstItem="Zr1-id-G98" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" id="4ms-L5-hv1"/>
-                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="BJ6-9q-P8h"/>
-                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" multiplier="0.2" id="LiJ-It-nSn"/>
+                                                <constraint firstItem="qNz-jN-tWh" firstAttribute="height" secondItem="Ugx-L1-omR" secondAttribute="height" multiplier="0.8" id="7eT-Ux-5hE"/>
+                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" constant="1" id="BJ6-9q-P8h"/>
+                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" multiplier="0.2" constant="7" id="LiJ-It-nSn"/>
+                                                <constraint firstItem="qNz-jN-tWh" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.12" id="S21-ic-ZQK"/>
                                                 <constraint firstItem="Zr1-id-G98" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="SHA-Bk-lDQ"/>
                                                 <constraint firstItem="qNz-jN-tWh" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="Y25-eD-qI9"/>
+                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.12" id="kEd-Tm-hpo"/>
+                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="height" secondItem="Ugx-L1-omR" secondAttribute="height" multiplier="0.8" id="odd-Ys-obO"/>
                                                 <constraint firstItem="qNz-jN-tWh" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" multiplier="1.8" id="utR-PH-Agw"/>
                                             </constraints>
                                         </view>
