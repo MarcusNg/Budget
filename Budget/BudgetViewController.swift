@@ -22,7 +22,9 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
+        // Navigation
+        NavBar.customizeNavBar(navController: navigationController)
+        slideMenu(button: menuButton)
         setup()
         print("Budget VC Loaded")
     }
@@ -32,9 +34,16 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    // Setup VC
+    func setup() {
+        // Visuals
+        monthLabel.text = DateHelper.printMonthYear(date: DateHelper.selectedDate)
+        budgetTable.reloadData()
+        progressRing()
+    }
+
     // Slideout Menu
     func slideMenu(button: UIBarButtonItem) {
-        
         if revealViewController() != nil {
             
             let screenSize = UIScreen.main.bounds
@@ -46,20 +55,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-            
         }
-    }
-    
-    // Setup VC
-    func setup() {
-        // Navigation
-        slideMenu(button: menuButton)
-        NavBar.customizeNavBar(navController: navigationController)
-        
-        // Visuals
-        monthLabel.text = DateHelper.printMonthYear(date: DateHelper.selectedDate)
-        budgetTable.reloadData()
-        progressRing()
     }
     
     // Progress Ring
@@ -72,10 +68,12 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         moneyLabel.text = "$\(moneySpent)\nleft of\n$\(moneyLimit)"
         
         if progress > 0.15 { // Bar turns red 15%-
-            circularProgress.innerRingColor = UIColor.green
+            circularProgress.innerRingColor = NavBar.RGB(r: 0, g: 204, b: 103)
         } else {
             circularProgress.innerRingColor = UIColor.red
         }
+        
+        circularProgress.startAngle = -90
         
         circularProgress.innerRingSpacing = 0
         
@@ -93,13 +91,17 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         circularProgress.shouldShowValueText = false
     }
     
+    // Animate progress circle
+    func animateCircleProgress(time: Double) {
+        circularProgress.setProgress(value: CGFloat(Categories.totalMoneyLimit - Expenses.totalSpent), animationDuration: time) {
+        }
+    }
+    
     // Run when segue unwinds
     @IBAction func unwindToBudget(_ segue: UIStoryboardSegue) {
-        budgetTable.reloadData()
-        progressRing()
-        circularProgress.setProgress(value: CGFloat(Categories.totalMoneyLimit - Expenses.totalSpent), animationDuration: 2.0) {
-        }
-
+        DateHelper.selectedDate = Date()
+        categoryReset()
+        setup()
     }
     
     // Segue to category
@@ -118,25 +120,30 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 displayCategoryVC.catMoneyLimit = sortedCat.getMoneyLimit()
                 // Deselect cell
                 budgetTable.deselectRow(at: indexPath, animated: true)
+                
             }
         }
+    }
+    
+    // Category reset when month changes
+    func categoryReset() {
+        Categories.defaultPopulate()
+        Categories.calcTotalMoneyLimit()
+        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
+        animateCircleProgress(time: 1.2)
     }
     
     // Previous Month Button
     @IBAction func prevMonthButton(_ sender: Any) {
         DateHelper.prevMonth()
-        Categories.defaultPopulate()
-        Categories.calcTotalMoneyLimit()
-        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: Date()))
+        categoryReset()
         setup()
     }
     
     // Next Month Button
     @IBAction func nextMonthButton(_ sender: Any) {
         DateHelper.nextMonth()
-        Categories.defaultPopulate()
-        Categories.calcTotalMoneyLimit()
-        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: Date()))
+        categoryReset()
         setup()
     }
     
@@ -158,6 +165,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.bar.progress = Float(category.getProgress())
         if cell.bar.progress >= 0.85 { // +85% red
             cell.bar.tintColor = UIColor.red
+        } else {
+            cell.bar.tintColor = NavBar.RGB(r: 0, g: 204, b: 103)
         }
         cell.moneyLeftLabel.text = "$" + moneySpent + " of $" + moneyLimit // $ of $
 

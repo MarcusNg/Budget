@@ -20,8 +20,6 @@ class Categories {
     static func defaultPopulate() {
         // Set categories to empty
         allCategories = []
-        print(allCategories)
-        totalMoneyLimit = 0
         
         // Add categories
         allCategories.append(Category(newCategory: "Clothing", newMoneySpent: 0, newMoneyLimit: 100, newProgress: 0, newColor: UIColor.blue))

@@ -288,9 +288,6 @@
                                                     <integer key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shouldShowValueText" value="NO"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                                    <real key="value" value="0.0"/>
-                                                </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="outerRingCapStyle">
                                                     <integer key="value" value="1"/>
                                                 </userDefinedRuntimeAttribute>

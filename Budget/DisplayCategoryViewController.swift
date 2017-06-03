@@ -87,6 +87,8 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             budgetCell.bar.progress = Float(catMoneySpent! / catMoneyLimit!)
             if budgetCell.bar.progress >= 0.85 { //+85% red
                 budgetCell.bar.tintColor = UIColor.red
+            } else {
+                budgetCell.bar.tintColor = NavBar.RGB(r: 0, g: 204, b: 103)
             }
             budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
             budgetCell.moneyLeftLabel.text = "$\(moneySpent) of $\(moneyLimit)"
