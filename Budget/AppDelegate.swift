@@ -38,11 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ////            realm.deleteAll()
 ////        }
         
-        Categories.defaultPopulate()
-        Categories.calcTotalMoneyLimit()
-
-        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: Date()))
-        
         return true
     }
 

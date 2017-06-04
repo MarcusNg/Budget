@@ -25,11 +25,17 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Navigation
         NavBar.customizeNavBar(navController: navigationController)
         slideMenu(button: menuButton)
-        
-        setup()
+
         print("Budget VC Loaded")
     }
 
+    // Updates all categories and budget every time view shows up
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateBudget()
+        print("Budget VC Appeared")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,9 +46,16 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Visuals
         monthLabel.text = DateHelper.printMonthYear(date: DateHelper.selectedDate)
         budgetTable.reloadData()
+        animateCircleProgress(time: 1.2)
         progressRing()
     }
 
+    // Update
+    func updateBudget() {
+        Categories.categoryReset()
+        setup()
+    }
+    
     // Slideout Menu
     func slideMenu(button: UIBarButtonItem) {
         if revealViewController() != nil {
@@ -100,9 +113,9 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // Run when segue unwinds
     @IBAction func unwindToBudget(_ segue: UIStoryboardSegue) {
+        print("Unwind to BudgetVC")
         DateHelper.selectedDate = Date()
-        categoryReset()
-        setup()
+        updateBudget()
     }
     
     // Segue to category
@@ -126,26 +139,16 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    // Category reset when month changes
-    func categoryReset() {
-        Categories.defaultPopulate()
-        Categories.calcTotalMoneyLimit()
-        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
-        animateCircleProgress(time: 1.2)
-    }
-    
     // Previous Month Button
     @IBAction func prevMonthButton(_ sender: Any) {
         DateHelper.prevMonth()
-        categoryReset()
-        setup()
+        updateBudget()
     }
     
     // Next Month Button
     @IBAction func nextMonthButton(_ sender: Any) {
         DateHelper.nextMonth()
-        categoryReset()
-        setup()
+        updateBudget()
     }
     
     

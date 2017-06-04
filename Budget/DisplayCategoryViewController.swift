@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -36,13 +37,15 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         
         self.categoryNavBar.title = category
         self.expenseTable.allowsSelection = false
+        
         self.expenseTable.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return dates.count + 1
@@ -79,10 +82,11 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         // SECTION 1: Budget Bar
         if indexPath.section == 0 {
             
+            let budgetCell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
+            
             let moneySpent: String = String(format: "%.02f", catMoneySpent!)
             let moneyLimit: String = String(format: "%.02f", catMoneyLimit!)
             
-            let budgetCell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
             budgetCell.categoryLabel.text = ""
             budgetCell.bar.progress = Float(catMoneySpent! / catMoneyLimit!)
             if budgetCell.bar.progress >= 0.85 { //+85% red
@@ -92,6 +96,9 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             }
             budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
             budgetCell.moneyLeftLabel.text = "$\(moneySpent) of $\(moneyLimit)"
+            
+            budgetCell.selectionStyle = UITableViewCellSelectionStyle.none
+            budgetCell.isUserInteractionEnabled = false
             
             cell = budgetCell
             
@@ -113,6 +120,31 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         }
         
         return cell
+    }
+    
+    // Deleting and editing
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+//            print("\(indexPath.section) : \(indexPath.row)")
+            
+            // Get remove expense from dictionary
+            let expense = dateExpenses[dates[indexPath.section - 1]]?.remove(at: indexPath.row)
+            catMoneySpent = catMoneySpent! - (expense?.amount)!
+        
+            // Delete from realm
+            let realm = try! Realm()
+            try! realm.write {
+                realm.delete(expense!)
+            }
+            
+            // Requery and reupdate bar and budgetVC
+            
+            tableView.reloadData()
+        }
     }
 
 }

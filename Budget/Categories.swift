@@ -70,4 +70,10 @@ class Categories {
         }
     }
     
+    static func categoryReset() {
+        Categories.defaultPopulate()
+        Categories.calcTotalMoneyLimit()
+        Expenses.queryMonth(monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
+    }
+    
 }
