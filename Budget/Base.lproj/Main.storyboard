@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pr8-fN-bjd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pr8-fN-bjd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -213,7 +213,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNz-jN-tWh">
-                                                    <rect key="frame" x="315" y="5.5" width="45" height="45"/>
+                                                    <rect key="frame" x="300.5" y="5.5" width="75" height="45"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <state key="normal" title="&gt;"/>
                                                     <connections>
@@ -221,7 +221,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsm-n8-1TA">
-                                                    <rect key="frame" x="22.5" y="6.5" width="45" height="45"/>
+                                                    <rect key="frame" x="7.5" y="6.5" width="75" height="45"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <state key="normal" title="&lt;"/>
                                                     <connections>
@@ -242,10 +242,10 @@
                                                 <constraint firstItem="qNz-jN-tWh" firstAttribute="height" secondItem="Ugx-L1-omR" secondAttribute="height" multiplier="0.8" id="7eT-Ux-5hE"/>
                                                 <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" constant="1" id="BJ6-9q-P8h"/>
                                                 <constraint firstItem="Lsm-n8-1TA" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" multiplier="0.2" constant="7" id="LiJ-It-nSn"/>
-                                                <constraint firstItem="qNz-jN-tWh" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.12" id="S21-ic-ZQK"/>
+                                                <constraint firstItem="qNz-jN-tWh" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.2" id="S21-ic-ZQK"/>
                                                 <constraint firstItem="Zr1-id-G98" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="SHA-Bk-lDQ"/>
                                                 <constraint firstItem="qNz-jN-tWh" firstAttribute="centerY" secondItem="Ugx-L1-omR" secondAttribute="centerY" id="Y25-eD-qI9"/>
-                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.12" id="kEd-Tm-hpo"/>
+                                                <constraint firstItem="Lsm-n8-1TA" firstAttribute="width" secondItem="Ugx-L1-omR" secondAttribute="width" multiplier="0.2" id="kEd-Tm-hpo"/>
                                                 <constraint firstItem="Lsm-n8-1TA" firstAttribute="height" secondItem="Ugx-L1-omR" secondAttribute="height" multiplier="0.8" id="odd-Ys-obO"/>
                                                 <constraint firstItem="qNz-jN-tWh" firstAttribute="centerX" secondItem="Ugx-L1-omR" secondAttribute="centerX" multiplier="1.8" id="utR-PH-Agw"/>
                                             </constraints>

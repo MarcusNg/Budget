@@ -25,6 +25,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Navigation
         NavBar.customizeNavBar(navController: navigationController)
         slideMenu(button: menuButton)
+        
         setup()
         print("Budget VC Loaded")
     }
@@ -62,11 +63,11 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func progressRing() {
         let moneySpent: String = String(format: "%.02f", Categories.totalMoneyLimit - Expenses.totalSpent)
         let moneyLimit: String = String(format: "%.02f", Categories.totalMoneyLimit)
-        let progress: Double = Categories.totalMoneyLimit - Expenses.totalSpent / Categories.totalMoneyLimit
+        let progress: Double = (Categories.totalMoneyLimit - Expenses.totalSpent) / Categories.totalMoneyLimit
         
         moneyLabel.numberOfLines = 3
         moneyLabel.text = "$\(moneySpent)\nleft of\n$\(moneyLimit)"
-        
+
         if progress > 0.15 { // Bar turns red 15%-
             circularProgress.innerRingColor = NavBar.RGB(r: 0, g: 204, b: 103)
         } else {

@@ -54,7 +54,7 @@ class Expenses {
             
             // Update money spent
             Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
-            print("\(expense.category) -- \(expense.amount)")
+//            print("\(expense.category) -- \(expense.amount)")
         }
         
     }
