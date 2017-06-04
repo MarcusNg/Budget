@@ -143,6 +143,11 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             // Get remove expense from dictionary
             let expense = dateExpenses[dates[indexPath.section - 1]]?.remove(at: indexPath.row)
             catMoneySpent = catMoneySpent! - (expense?.amount)!
+            
+            // Remove date if no expenses
+            if (dateExpenses[dates[indexPath.section - 1]]?.isEmpty)! {
+                dates.remove(at: indexPath.section - 1)
+            }
         
             // Delete from realm
             let realm = try! Realm()
