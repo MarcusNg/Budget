@@ -421,16 +421,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$ left of $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ph-UW-OSs">
-                                                    <rect key="frame" x="14" y="49" width="353" height="39"/>
+                                                    <rect key="frame" x="14" y="55.5" width="353" height="32.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="OSj-QF-l80">
-                                                    <rect key="frame" x="14" y="27" width="346" height="2.5"/>
+                                                    <rect key="frame" x="14" y="27" width="346" height="9"/>
                                                     <color key="backgroundColor" red="0.79736013169999997" green="0.79327110540000001" blue="0.80144915800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1.5" id="Ogi-Px-i2H"/>
+                                                        <constraint firstAttribute="height" constant="8" id="Ogi-Px-i2H"/>
                                                     </constraints>
                                                 </progressView>
                                             </subviews>

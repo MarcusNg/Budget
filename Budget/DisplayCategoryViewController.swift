@@ -89,13 +89,12 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             
             budgetCell.categoryLabel.text = ""
 
-            budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
-            
+//            budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
             let progress: Float = Float(self.catMoneySpent! / self.catMoneyLimit!)
             // Bug - doesn't fill whole bar height)
-//            UIView.animate(withDuration: 1.2, animations: { () -> Void in
-//                budgetCell.bar.setProgress(progress, animated: true)
-//            })
+            UIView.animate(withDuration: 1.2, animations: { () -> Void in
+                budgetCell.bar.setProgress(progress, animated: true)
+            })
           
             budgetCell.bar.progress = progress
             
@@ -150,8 +149,6 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             try! realm.write {
                 realm.delete(expense!)
             }
-            
-            // Requery and reupdate bar and budgetVC
             
             tableView.reloadData()
         }
