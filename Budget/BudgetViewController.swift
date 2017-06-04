@@ -166,7 +166,10 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let moneyLimit: String = String(format: "%.02f", category.getMoneyLimit())
         
         cell.categoryLabel.text = category.getCategory() // Category
-        cell.bar.progress = Float(category.getProgress())
+        
+        UIView.animate(withDuration: 1.2, animations: { () -> Void in
+            cell.bar.setProgress(Float(category.getProgress()), animated: true)
+        })
         if cell.bar.progress >= 0.85 { // +85% red
             cell.bar.tintColor = UIColor.red
         } else {

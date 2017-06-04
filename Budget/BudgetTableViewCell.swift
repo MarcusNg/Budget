@@ -17,8 +17,9 @@ class BudgetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         bar.transform = CGAffineTransform(scaleX: 1, y: 4)
-        bar.tintColor = NavBar.RGB(r: 0, g: 204, b: 103)
+//        bar.tintColor = NavBar.RGB(r: 0, g: 204, b: 103)
         bar.backgroundColor = NavBar.RGB(r: 203, g: 202, b: 204)
     }
 

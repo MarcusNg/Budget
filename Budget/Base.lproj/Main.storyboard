@@ -429,7 +429,6 @@
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.30000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="OSj-QF-l80">
                                                     <rect key="frame" x="14" y="27" width="346" height="2.5"/>
                                                     <color key="backgroundColor" red="0.79736013169999997" green="0.79327110540000001" blue="0.80144915800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <color key="tintColor" red="0.0" green="0.80144915800000005" blue="0.4041323235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1.5" id="Ogi-Px-i2H"/>
                                                     </constraints>

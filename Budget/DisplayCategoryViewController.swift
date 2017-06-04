@@ -88,13 +88,23 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             let moneyLimit: String = String(format: "%.02f", catMoneyLimit!)
             
             budgetCell.categoryLabel.text = ""
-            budgetCell.bar.progress = Float(catMoneySpent! / catMoneyLimit!)
+
+            budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
+            
+            let progress: Float = Float(self.catMoneySpent! / self.catMoneyLimit!)
+            // Bug - doesn't fill whole bar height)
+//            UIView.animate(withDuration: 1.2, animations: { () -> Void in
+//                budgetCell.bar.setProgress(progress, animated: true)
+//            })
+          
+            budgetCell.bar.progress = progress
+            
             if budgetCell.bar.progress >= 0.85 { //+85% red
                 budgetCell.bar.tintColor = UIColor.red
             } else {
                 budgetCell.bar.tintColor = NavBar.RGB(r: 0, g: 204, b: 103)
             }
-            budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
+            
             budgetCell.moneyLeftLabel.text = "$\(moneySpent) of $\(moneyLimit)"
             
             budgetCell.selectionStyle = UITableViewCellSelectionStyle.none
