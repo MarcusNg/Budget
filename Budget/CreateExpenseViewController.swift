@@ -9,16 +9,27 @@
 import UIKit
 import RealmSwift
 
-class CreateExpenseViewController: UIViewController {
+class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    
+    @IBOutlet weak var categoryPicker: UIPickerView!
+    
     @IBOutlet weak var expenseAmountTF: UITextField!
     @IBOutlet weak var categoryTF: UITextField!
     @IBOutlet weak var noteTF: UITextField!
     
+    var rotationAngle: CGFloat!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // Horizontal UIPickerView
+        let y = categoryPicker.frame.origin.y
+        rotationAngle = -90 * (.pi / 180)
+        categoryPicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        
+        categoryPicker.frame = CGRect(x: -125, y: y, width: view.frame.width + 250, height: 50)
+        categoryPicker.selectRow(3, inComponent: 0, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,5 +69,37 @@ class CreateExpenseViewController: UIViewController {
         addExpense(category: categoryTF.text!, amount: Double(expenseAmountTF.text!)!, note: noteTF.text!)
         self.performSegue(withIdentifier: "unwindToBudget", sender: self)
     }
+    
+    
+    // Category Picker View
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Categories.allCategories.count
+    }
 
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Categories.allCategories[row].getCategory() // sort alphabetically
+    }
+    
+    // Width b/c picker view rotated
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 140
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 450, height: 50))
+        
+        let categoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 450, height: 50))
+        categoryLabel.text = Categories.allCategories[row].getCategory()
+        categoryLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
+        categoryLabel.textAlignment = .center
+        view.addSubview(categoryLabel)
+        
+        view.transform = CGAffineTransform(rotationAngle: 90 * (.pi / 180))
+        return view
+    }
+    
 }
