@@ -37,6 +37,12 @@ class Categories {
         }
     }
     
+    static func sortAlphabetically(categories: Array<Category>) -> Array<Category> {
+        return categories.sorted { category1,category2 in
+            return category1.getCategory() < category2.getCategory()
+        }
+    }
+    
     static func updateMoneySpent(category: String, moneySpent: Double) {
         for cat in allCategories {
             if cat.getCategory() == category {

@@ -15,8 +15,9 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var categoryPicker: UIPickerView!
     
     @IBOutlet weak var expenseAmountTF: UITextField!
-    @IBOutlet weak var categoryTF: UITextField!
     @IBOutlet weak var noteTF: UITextField!
+    
+    let categories = Categories.sortAlphabetically(categories: Categories.allCategories)
     
     var rotationAngle: CGFloat!
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         rotationAngle = -90 * (.pi / 180)
         categoryPicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
         
-        categoryPicker.frame = CGRect(x: -125, y: y, width: view.frame.width + 250, height: 50)
+        categoryPicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 50)
         categoryPicker.selectRow(3, inComponent: 0, animated: true)
     }
 
@@ -64,9 +65,8 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         
     }
     
-    
     @IBAction func addExpenseButton(_ sender: Any) {
-        addExpense(category: categoryTF.text!, amount: Double(expenseAmountTF.text!)!, note: noteTF.text!)
+        addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: Double(expenseAmountTF.text!)!, note: noteTF.text!)
         self.performSegue(withIdentifier: "unwindToBudget", sender: self)
     }
     
@@ -81,7 +81,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Categories.allCategories[row].getCategory() // sort alphabetically
+        return categories[row].getCategory() // sort alphabetically
     }
     
     // Width b/c picker view rotated
@@ -93,7 +93,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 450, height: 50))
         
         let categoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 450, height: 50))
-        categoryLabel.text = Categories.allCategories[row].getCategory()
+        categoryLabel.text = categories[row].getCategory()
         categoryLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
         categoryLabel.textAlignment = .center
         view.addSubview(categoryLabel)
