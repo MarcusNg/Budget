@@ -10,20 +10,25 @@ import UIKit
 import RealmSwift
 
 class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
     
     @IBOutlet weak var categoryPicker: UIPickerView!
-    
+    @IBOutlet weak var expenseAmountLabel: UILabel!
     @IBOutlet weak var expenseAmountTF: UITextField!
     @IBOutlet weak var noteTF: UITextField!
     
     let categories = Categories.sortAlphabetically(categories: Categories.allCategories)
-    
     var rotationAngle: CGFloat!
+    
+    var index: Int = 1
+    var costArray: Array<String> = ["$", "0", ".", "0", "0"]
+    var cost: Double = 0.00
+    var twoTaps: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        expenseAmountLabel.text = "$0.00"
         // Horizontal UIPickerView
         let y = categoryPicker.frame.origin.y
         rotationAngle = -90 * (.pi / 180)
@@ -36,6 +41,84 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+  
+    // Append digit to cost
+    @IBAction func numbers(_ sender: UIButton) {
+        let num: String = String(sender.tag)
+        if index < costArray.count {
+            
+            if costArray[index] == "0" { // Replace "0" with num
+                costArray[index] = num
+                index += 1
+                // Don't go over limit
+                if index >= costArray.count {
+                    index -= 1
+                }
+                print("1 -- Current \(index) : \(costArray[index])")
+            } else if index + 1 < costArray.count && index > costArray.index(of: ".")! && costArray[index] != "0" && costArray[index + 1] == "0" { // Hundredths place
+                index += 1
+                costArray[index] = num
+                print("2 -- Current \(index) : \(costArray[index])")
+            } else if costArray.index(of: ".")! < 7 && index < costArray.index(of: ".")! + 1 { // Limit to six figures on the left of the decimal
+                costArray.insert(num, at: index)
+                index += 1
+                print("3 -- Current \(index) : \(costArray[index])")
+            }
+            getCost()
+        }
+    }
+    
+    // Move index to one position past the decimal
+    @IBAction func decimal(_ sender: Any) {
+        if index < costArray.index(of: ".")! + 1 {
+            index = costArray.index(of: ".")! + 1
+        }
+    }
+
+    // Remove/Replace digit
+    @IBAction func backspace(_ sender: Any) {
+        if index > costArray.index(of: ".")! + 1 {
+            costArray[index] = "0"
+            index -= 1
+            twoTaps = 0
+        } else if index > costArray.index(of: ".")! {
+            costArray[index] = "0"
+            twoTaps += 1
+            if twoTaps == 2 {
+                index -= 1
+                twoTaps = 0
+            }
+        } else if index == 2 {
+            index -= 1
+            costArray[index] = "0"
+        } else if index > 1 && index < costArray.index(of: ".")! {
+            costArray.remove(at: index)
+            index -= 1
+        } else if index == costArray.index(of: ".") {
+            index -= 1
+            costArray.remove(at: index)
+        }
+        
+        if index == 0 {
+            index = 1
+        }
+        
+        print("Remove Current \(index) : \(costArray[index])")
+        getCost()
+    }
+    
+    // Update label and current cost
+    func getCost() {
+        expenseAmountLabel.text = ""
+        var tmp = ""
+        for s in 1..<costArray.count {
+            tmp += costArray[s]
+        }
+        cost = Double(tmp)!
+        expenseAmountLabel.text! = "$" + tmp
     }
     
     // Adds expense to DB
@@ -66,7 +149,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     @IBAction func addExpenseButton(_ sender: Any) {
-        addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: Double(expenseAmountTF.text!)!, note: noteTF.text!)
+        addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, note: noteTF.text!)
         self.performSegue(withIdentifier: "unwindToBudget", sender: self)
     }
     
