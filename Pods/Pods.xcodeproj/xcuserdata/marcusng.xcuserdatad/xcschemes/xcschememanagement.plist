@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TextFieldEffects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UICircularProgressRing.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2ECA1036CB67079A77D6D66668B0F6F5</key>
+		<key>0DDB4FCE4A75FFDE8EC92BAC76F0E974</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>538585D78EBB8D15E6EE3521C8C1D899</key>
+		<key>5729E78A005E7B2D768B69FC363DF47B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>613B874F3CCA0A3B4AF3A3DF6ECD4F9F</key>
+		<key>890574B4AC7F563175D3E7F126AAD516</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>938E0725BB950DD5C6E17FC685D4888B</key>
+		<key>9E83C93F2E5F98A0B6954059B173DF2F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E649DAC9101FAF64E0F79FCA4E59A9BD</key>
+		<key>DBB65128476CFFBB73947F3DD3285501</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E18F49BDF709B1015775E0A7D4D6AEB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

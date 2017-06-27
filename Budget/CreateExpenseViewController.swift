@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var expenseAmountLabel: UILabel!
@@ -30,13 +30,17 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Do any additional setup after loading the view.
         expenseAmountLabel.text = "$0.00"
         // Horizontal UIPickerView
-        let y = categoryPicker.frame.origin.y
+        var y = categoryPicker.frame.origin.y + 10
         rotationAngle = -90 * (.pi / 180)
         categoryPicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
-        
         categoryPicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 50)
         categoryPicker.selectRow(3, inComponent: 0, animated: true)
     
+        // Date Picker
+        y = datePicker.frame.origin.y
+        datePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
+        
+        self.noteTF.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +48,16 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Dispose of any resources that can be recreated.
     }
     
+    // Touch outside of keyboard to hide
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
+    // Keyboard return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
   
     // Append digit to cost
     @IBAction func numbers(_ sender: UIButton) {
@@ -81,7 +94,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
             costArray[index] = "0"
             index -= 1
             twoTaps = 0
-        } else if index > costArray.index(of: ".")! {
+        } else if index > costArray.index(of: ".")! { // Two taps to leave decimal
             costArray[index] = "0"
             twoTaps += 1
             if twoTaps == 2 {
@@ -145,8 +158,10 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     @IBAction func addExpenseButton(_ sender: Any) {
-        addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
-        self.performSegue(withIdentifier: "unwindToBudget", sender: self)
+        if cost != 0 {
+            addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
+            self.performSegue(withIdentifier: "unwindToBudget", sender: self)
+        }
     }
     
     

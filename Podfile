@@ -14,6 +14,7 @@ target 'Budget' do
   pod 'SWRevealViewController', '~> 2.3.0', :inhibit_warnings => true
   pod 'RealmSwift', '~> 2.7.0', :inhibit_warnings => true
   pod 'UICircularProgressRing', '~> 1.4.3', :inhibit_warnings => true
+  pod 'TextFieldEffects', '~> 1.3.3', :inhibit_warnings => true
   
   post_install do |installer|
     installer.pods_project.targets.each do |target|

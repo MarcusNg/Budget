@@ -23,7 +23,7 @@ class NavBar {
     // Custom Navbar
     static func customizeNavBar(navController: UINavigationController?) {
         navController?.navigationBar.tintColor = RGB(r: 255, g: 255, b: 255) // Bar Item Tint
-        navController?.navigationBar.barTintColor = RGB(r: 51, g: 204, b: 51) // Navbar color
+        navController?.navigationBar.barTintColor = RGB(r: 61, g: 216, b: 76) // Navbar color
         navController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white] // Title
     }
     

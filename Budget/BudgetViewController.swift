@@ -176,7 +176,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.bar.tintColor = NavBar.RGB(r: 0, g: 204, b: 103)
         }
         cell.moneyLeftLabel.text = "$" + moneySpent + " of $" + moneyLimit // $ of $
-
+        
         return cell
     }
     
