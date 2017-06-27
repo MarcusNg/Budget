@@ -673,6 +673,12 @@
                                     <outlet property="delegate" destination="xxE-Lq-y4E" id="9vz-GH-sEO"/>
                                 </connections>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-LZ-JLO">
+                                <rect key="frame" x="0.0" y="305" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nii-6e-bJB">
                                 <rect key="frame" x="0.0" y="174" width="375" height="112"/>
                                 <constraints>
@@ -688,12 +694,6 @@
                                     <!--2037-12-31 11:00:00 +0000-->
                                 </date>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-LZ-JLO">
-                                <rect key="frame" x="0.0" y="305" width="375" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -778,6 +778,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="categoryPicker" destination="ehH-Eq-0hG" id="fxO-0b-yBJ"/>
+                        <outlet property="datePicker" destination="Nii-6e-bJB" id="4Sf-Mt-71x"/>
                         <outlet property="expenseAmountLabel" destination="A2O-fq-M1x" id="7Yr-oL-Xbl"/>
                         <outlet property="noteTF" destination="fYp-LZ-JLO" id="Ngd-q4-ssB"/>
                     </connections>

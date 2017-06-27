@@ -14,6 +14,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var expenseAmountLabel: UILabel!
     @IBOutlet weak var noteTF: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     let categories = Categories.sortAlphabetically(categories: Categories.allCategories)
     var rotationAngle: CGFloat!
@@ -35,6 +36,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         categoryPicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 50)
         categoryPicker.selectRow(3, inComponent: 0, animated: true)
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,14 +118,14 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     // Adds expense to DB
-    func addExpense(category: String, amount: Double, note: String) {
+    func addExpense(category: String, amount: Double, date: Date, note: String) {
         
         let expense = Expense()
         expense.category = category
         expense.amount = amount
         expense.note = note
-        expense.date = Date()
-        expense.monthYear = DateHelper.printMonthYear(date: Date())
+        expense.date = date
+        expense.monthYear = DateHelper.printMonthYear(date: date)
         
         let realm = try! Realm()
         
@@ -143,7 +145,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     @IBAction func addExpenseButton(_ sender: Any) {
-        addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, note: noteTF.text!)
+        addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
         self.performSegue(withIdentifier: "unwindToBudget", sender: self)
     }
     
