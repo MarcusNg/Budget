@@ -30,17 +30,18 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Do any additional setup after loading the view.
         expenseAmountLabel.text = "$0.00"
         // Horizontal UIPickerView
-        var y = categoryPicker.frame.origin.y + 10
+        var y = self.view.frame.height / 8
         rotationAngle = -90 * (.pi / 180)
         categoryPicker.transform = CGAffineTransform(rotationAngle: rotationAngle)
         categoryPicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 50)
         categoryPicker.selectRow(3, inComponent: 0, animated: true)
     
         // Date Picker
-        y = datePicker.frame.origin.y
+        y = self.view.frame.height / 4.5
         datePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
         
-        self.noteTF.delegate = self
+        noteTF.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {

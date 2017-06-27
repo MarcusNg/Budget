@@ -551,11 +551,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2O-fq-M1x">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehH-Eq-0hG">
+                                <rect key="frame" x="0.0" y="58" width="375" height="109"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xxE-Lq-y4E" id="aNZ-oe-Llw"/>
+                                    <outlet property="delegate" destination="xxE-Lq-y4E" id="9vz-GH-sEO"/>
+                                </connections>
+                            </pickerView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nii-6e-bJB">
                                 <rect key="frame" x="0.0" y="160" width="375" height="112"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -736,10 +744,11 @@
                                     <constraint firstItem="ijJ-xh-mAP" firstAttribute="top" secondItem="xKc-H0-nGJ" secondAttribute="top" id="vvC-qu-GAt"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-LZ-JLO" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="37.5" y="289.5" width="300" height="24"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-LZ-JLO" customClass="KaedeTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="16" y="272.5" width="343" height="36"/>
+                                <color key="backgroundColor" red="0.83995757410000005" green="0.95298274159999996" blue="0.95808465060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -750,22 +759,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehH-Eq-0hG">
-                                <rect key="frame" x="0.0" y="58" width="375" height="109"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="xxE-Lq-y4E" id="aNZ-oe-Llw"/>
-                                    <outlet property="delegate" destination="xxE-Lq-y4E" id="9vz-GH-sEO"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="centerY" secondItem="K1R-oq-mUY" secondAttribute="centerY" id="HAu-kg-QcV"/>
+                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="height" secondItem="K1R-oq-mUY" secondAttribute="height" multiplier="0.06" id="9BA-nx-sxs"/>
+                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="centerY" secondItem="K1R-oq-mUY" secondAttribute="centerY" multiplier="0.92" constant="13.074999999999989" id="HAu-kg-QcV"/>
                             <constraint firstItem="A2O-fq-M1x" firstAttribute="leading" secondItem="K1R-oq-mUY" secondAttribute="leading" id="LNt-hx-GAJ"/>
-                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="width" secondItem="K1R-oq-mUY" secondAttribute="width" multiplier="0.8" id="NFP-Mi-CDt"/>
+                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="width" secondItem="K1R-oq-mUY" secondAttribute="width" multiplier="0.8" constant="43" id="NFP-Mi-CDt"/>
                             <constraint firstItem="qdJ-h5-22x" firstAttribute="leading" secondItem="K1R-oq-mUY" secondAttribute="leading" id="O7l-Mq-W5V"/>
-                            <constraint firstItem="A2O-fq-M1x" firstAttribute="height" secondItem="K1R-oq-mUY" secondAttribute="height" multiplier="0.1" constant="9.6999999999999957" id="TQf-eZ-YO7"/>
+                            <constraint firstItem="A2O-fq-M1x" firstAttribute="height" secondItem="K1R-oq-mUY" secondAttribute="height" multiplier="0.1" constant="19.699999999999996" id="TQf-eZ-YO7"/>
                             <constraint firstItem="TzS-F2-I4h" firstAttribute="top" secondItem="qdJ-h5-22x" secondAttribute="bottom" id="Tzk-Ma-hQN"/>
                             <constraint firstItem="A2O-fq-M1x" firstAttribute="top" secondItem="Tne-wS-38D" secondAttribute="bottom" id="fMz-I5-IdV"/>
                             <constraint firstItem="fYp-LZ-JLO" firstAttribute="centerX" secondItem="K1R-oq-mUY" secondAttribute="centerX" id="hG6-ur-wn9"/>
