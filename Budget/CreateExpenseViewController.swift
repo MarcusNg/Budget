@@ -13,7 +13,6 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var expenseAmountLabel: UILabel!
-    @IBOutlet weak var expenseAmountTF: UITextField!
     @IBOutlet weak var noteTF: UITextField!
     
     let categories = Categories.sortAlphabetically(categories: Categories.allCategories)
@@ -49,7 +48,6 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBAction func numbers(_ sender: UIButton) {
         let num: String = String(sender.tag)
         if index < costArray.count {
-            
             if costArray[index] == "0" { // Replace "0" with num
                 costArray[index] = num
                 index += 1
@@ -57,15 +55,12 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
                 if index >= costArray.count {
                     index -= 1
                 }
-                print("1 -- Current \(index) : \(costArray[index])")
             } else if index + 1 < costArray.count && index > costArray.index(of: ".")! && costArray[index] != "0" && costArray[index + 1] == "0" { // Hundredths place
                 index += 1
                 costArray[index] = num
-                print("2 -- Current \(index) : \(costArray[index])")
             } else if costArray.index(of: ".")! < 7 && index < costArray.index(of: ".")! + 1 { // Limit to six figures on the left of the decimal
                 costArray.insert(num, at: index)
                 index += 1
-                print("3 -- Current \(index) : \(costArray[index])")
             }
             getCost()
         }
@@ -105,8 +100,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         if index == 0 {
             index = 1
         }
-        
-        print("Remove Current \(index) : \(costArray[index])")
+
         getCost()
     }
     
