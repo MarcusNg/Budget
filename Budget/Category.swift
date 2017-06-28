@@ -14,24 +14,21 @@ class Category {
     private var moneySpent: Double
     private var moneyLimit: Double
     private var progress: Double
-    private var color: UIColor
     
     // Default constructor
     init() {
-        category = "NO CATEGORY"
+        category = "CATEGORY"
         moneySpent = 0
         moneyLimit = 0
         progress = 0
-        color = UIColor.red
     }
     
     // Overloaded constructor
-    init(newCategory: String, newMoneySpent: Double, newMoneyLimit: Double, newProgress: Double, newColor: UIColor) {
+    init(newCategory: String, newMoneySpent: Double, newMoneyLimit: Double, newProgress: Double) {
         category = newCategory
         moneySpent = newMoneySpent
         moneyLimit = newMoneyLimit
         progress = newProgress
-        color = newColor
     }
     
     // Getters
@@ -51,10 +48,6 @@ class Category {
         return progress
     }
     
-    func getColor() -> UIColor {
-        return color
-    }
-    
     // Setters
     func setCategory(newCategory: String) {
         category = newCategory
@@ -70,10 +63,6 @@ class Category {
     
     func setProgress(newProgress: Double) {
         progress = newProgress
-    }
-    
-    func setColor(newColor: UIColor) {
-        color = newColor
     }
     
     // Update

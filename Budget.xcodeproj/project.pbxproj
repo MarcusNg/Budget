@@ -10,6 +10,7 @@
 		5F157F591ED68049000457E1 /* DisplayCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F157F581ED68048000457E1 /* DisplayCategoryViewController.swift */; };
 		5F17DA2F1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */; };
 		5F2A88741ECA0D3E00D47036 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2A88731ECA0D3E00D47036 /* Categories.swift */; };
+		5F4198D51F0434DD00D8D3A1 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4198D41F0434DD00D8D3A1 /* Settings.swift */; };
 		5F53189B1ED9381800E0D1F7 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F53189A1ED9381800E0D1F7 /* ExpenseTableViewCell.swift */; };
 		5F5760611ECB9A4300870793 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5760601ECB9A4300870793 /* Expenses.swift */; };
 		5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6416D51EBFDE8100683F80 /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		5F157F581ED68048000457E1 /* DisplayCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCategoryViewController.swift; sourceTree = "<group>"; };
 		5F17DA2E1EC5F8AD00D93AA3 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		5F2A88731ECA0D3E00D47036 /* Categories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		5F4198D41F0434DD00D8D3A1 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5F53189A1ED9381800E0D1F7 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		5F5760601ECB9A4300870793 /* Expenses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
 		5F6416D21EBFDE8100683F80 /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 				5F64170F1EC2AB9100683F80 /* DateHelper.swift */,
 				5F2A88731ECA0D3E00D47036 /* Categories.swift */,
 				5F5760601ECB9A4300870793 /* Expenses.swift */,
+				5F4198D41F0434DD00D8D3A1 /* Settings.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				5F53189B1ED9381800E0D1F7 /* ExpenseTableViewCell.swift in Sources */,
 				5F6416FA1EC0053400683F80 /* NavBar.swift in Sources */,
 				5F6416FE1EC00E5000683F80 /* PodcastsViewController.swift in Sources */,
+				5F4198D51F0434DD00D8D3A1 /* Settings.swift in Sources */,
 				5F6417001EC00E5A00683F80 /* SettingsViewController.swift in Sources */,
 				5F6417021EC00E6300683F80 /* HelpViewController.swift in Sources */,
 				5F6416D61EBFDE8100683F80 /* AppDelegate.swift in Sources */,

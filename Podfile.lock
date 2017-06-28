@@ -9,6 +9,7 @@ PODS:
   - UICircularProgressRing (1.4.3)
 
 DEPENDENCIES:
+  - Realm (~> 2.8.3)
   - RealmSwift (~> 2.8.3)
   - SWRevealViewController (~> 2.3.0)
   - TextFieldEffects (~> 1.3.3)
@@ -21,6 +22,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 8706f53525f1ce51c8921b7af32237caab50c467
   UICircularProgressRing: f90123562efc555f861f9955384a3450e81e82c0
 
-PODFILE CHECKSUM: 04d6d88b900aeb2d07973167cdd1ac51eaa7cbec
+PODFILE CHECKSUM: 70c7794ebf75a6ca38cbe0243f8d9bdf693a20da
 
 COCOAPODS: 1.2.1
