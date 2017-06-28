@@ -131,32 +131,36 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         return cell
     }
     
-    // Deleting and editing
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
-//            print("\(indexPath.section) : \(indexPath.row)")
+    // Table View Actions
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, index) in
+            print("Edit cell")
+        }
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, index) in
+            print("Delete cell")
             
             // Get remove expense from dictionary
-            let expense = dateExpenses[dates[indexPath.section - 1]]?.remove(at: indexPath.row)
-            catMoneySpent = catMoneySpent! - (expense?.amount)!
+            let expense = self.dateExpenses[self.dates[indexPath.section - 1]]?.remove(at: indexPath.row)
+            self.catMoneySpent = self.catMoneySpent! - (expense?.amount)!
             
             // Remove date if no expenses
-            if (dateExpenses[dates[indexPath.section - 1]]?.isEmpty)! {
-                dates.remove(at: indexPath.section - 1)
+            if (self.dateExpenses[self.dates[indexPath.section - 1]]?.isEmpty)! {
+                self.dates.remove(at: indexPath.section - 1)
             }
-        
+            
             // Delete from realm
             let realm = try! Realm()
             try! realm.write {
                 realm.delete(expense!)
             }
-            
             tableView.reloadData()
         }
+        
+        editAction.backgroundColor = UIColor.lightGray
+        
+        return [deleteAction, editAction]
     }
+    
 
 }
