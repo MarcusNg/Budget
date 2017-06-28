@@ -18,6 +18,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var barButton: UIButton!
 
     let categories: [Category] = Categories.sortAlphabetically(categories: Categories.allCategories)
+    var oldCat: String = ""
     var rotationAngle: CGFloat!
     
     var index: Int = 1
@@ -87,7 +88,9 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
                     break
                 }
             }
+            
             categoryPicker.selectRow(categoryIndex, inComponent: 0, animated: true)
+            oldCat = categories[categoryPicker.selectedRow(inComponent: 0)].getCategory()
             
             // Change DatePicker to selected date
             datePicker.setDate(expense!.date, animated: true)
@@ -218,7 +221,12 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
             realm.create(Expense.self, value: ["id": expense!.id, "category": category, "amount": amount, "date": date, "note": note, "monthYear": DateHelper.printMonthYear(date: date)], update: true)
             
             // Update money spent
-            Categories.updateMoneySpent(category: category, moneySpent: amount, oldMoneySpent: oldCost)
+            if category == oldCat {
+                Categories.updateMoneySpent(category: category, moneySpent: amount, oldMoneySpent: oldCost)
+            } else {
+                Categories.updateMoneySpent(category: oldCat, moneySpent: 0, oldMoneySpent: oldCost)
+                Categories.updateMoneySpent(category: category, moneySpent: amount, oldMoneySpent: 0)
+            }
             
             // Update total expenses
             Expenses.totalSpent -= oldCost

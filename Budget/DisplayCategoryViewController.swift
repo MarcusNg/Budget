@@ -203,5 +203,4 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         return [deleteAction, editAction]
     }
     
-
 }
