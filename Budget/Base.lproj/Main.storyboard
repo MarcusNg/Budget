@@ -786,7 +786,7 @@
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
-                                    <action selector="addExpenseButton:" destination="xxE-Lq-y4E" eventType="touchUpInside" id="fja-si-Db2"/>
+                                    <action selector="expenseBarButton:" destination="xxE-Lq-y4E" eventType="touchUpInside" id="cBH-3c-TjY"/>
                                 </connections>
                             </button>
                             <connections>
@@ -800,6 +800,7 @@
                         <outlet property="datePicker" destination="Nii-6e-bJB" id="4Sf-Mt-71x"/>
                         <outlet property="expenseAmountLabel" destination="A2O-fq-M1x" id="7Yr-oL-Xbl"/>
                         <outlet property="noteTF" destination="fYp-LZ-JLO" id="Ngd-q4-ssB"/>
+                        <segue destination="yLo-rQ-DRU" kind="unwind" identifier="unwindToDisplay" unwindAction="unwindToDisplay:" id="8DA-xg-Ot5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AUf-mA-Yjt" userLabel="First Responder" sceneMemberID="firstResponder"/>

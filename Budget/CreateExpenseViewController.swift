@@ -204,16 +204,20 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
 
             // Update total expenses
             Expenses.totalSpent += expense.amount
-
-//            print(expense.date)
         }
-        
     }
     
-    @IBAction func addExpenseButton(_ sender: Any) {
-        if cost != 0 {
-            addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
-            self.performSegue(withIdentifier: "unwindToBudget", sender: self)
+    @IBAction func expenseBarButton(_ sender: Any) {
+        if cost != 0 && (!(noteTF.text?.isEmpty)!) {
+            if expense == nil {
+                // Add new expense
+                addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
+                self.performSegue(withIdentifier: "unwindToBudget", sender: self)
+            } else {
+                // Update expense
+//                updateExpense
+                self.performSegue(withIdentifier: "unwindToDisplay", sender: self)
+            }
         }
     }
     

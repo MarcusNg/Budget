@@ -61,18 +61,17 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
                 let selectedExpense: Expense = (self.dateExpenses[self.dates[indexPathForAction!.section - 1]]?[indexPathForAction!.row])!
                 
                 createExpenseVC.expense = selectedExpense
-                // Pass the category to the displayVC
-//                let sortedCat = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row]
-//                displayCategoryVC.category = sortedCat.getCategory()
-//                displayCategoryVC.catMoneySpent = sortedCat.getMoneySpent()
-//                displayCategoryVC.catMoneyLimit = sortedCat.getMoneyLimit()
-                // Deselect cell
-//                budgetTable.deselectRow(at: indexPath, animated: true)
-                
+        
             }
         }
     }
 
+    @IBAction func unwindToDisplay(_ segue: UIStoryboardSegue) {
+        print("Unwind to DisplayExpenseVC")
+        self.expenseTable.reloadData()
+        // prob gonna have to run update fxn
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return dates.count + 1
     }
