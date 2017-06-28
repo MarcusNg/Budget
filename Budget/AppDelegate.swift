@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Realm.Configuration.defaultConfiguration = config
         
-        let realm = try! Realm()
+//        let realm = try! Realm()
         
         // CLEAR DATABASE
 ////        try! realm.write {

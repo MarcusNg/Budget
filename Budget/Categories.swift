@@ -43,10 +43,10 @@ class Categories {
         }
     }
     
-    static func updateMoneySpent(category: String, moneySpent: Double) {
+    static func updateMoneySpent(category: String, moneySpent: Double, oldMoneySpent: Double) {
         for cat in allCategories {
             if cat.getCategory() == category {
-                let newTotal: Double = cat.getMoneySpent() + moneySpent
+                let newTotal: Double = cat.getMoneySpent() + moneySpent - oldMoneySpent
                 cat.setMoneySpent(newMoneySpent: newTotal)
                 cat.setProgress(newProgress: newTotal / cat.getMoneyLimit())
             }

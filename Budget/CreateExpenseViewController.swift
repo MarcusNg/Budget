@@ -23,6 +23,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     var index: Int = 1
     var costArray: Array<String> = ["$", "0", ".", "0", "0"]
     var cost: Double = 0.00
+    var oldCost: Double = 0.00
     var twoTaps: Int = 0
     
     // Expense - if being updated
@@ -33,6 +34,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         // Do any additional setup after loading the view.
         
         barButton.setTitle("Add", for: .normal)
+        oldCost = cost
         expenseAmountLabel.text = "$0.00"
         // Horizontal UIPickerView
         var y = self.view.frame.height / 8
@@ -75,6 +77,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
             
             // Change cost
             cost = expense!.amount
+            oldCost = cost
             
             // Change UIPicker to selected category
             var categoryIndex = 0
@@ -197,14 +200,32 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         try! realm.write {
             realm.add(expense)
-//            print("Added: " + expense.category + " -- " + String(expense.amount))
             
             // Update money spent
-            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
+            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount, oldMoneySpent: 0)
 
             // Update total expenses
             Expenses.totalSpent += expense.amount
         }
+    }
+    
+    // Update expense
+    func updateExpense(category: String, amount: Double, date: Date, note: String) {
+    
+        let realm = try! Realm()
+
+        try! realm.write {
+            realm.create(Expense.self, value: ["id": expense!.id, "category": category, "amount": amount, "date": date, "note": note, "monthYear": DateHelper.printMonthYear(date: date)], update: true)
+            
+            // Update money spent
+            Categories.updateMoneySpent(category: category, moneySpent: amount, oldMoneySpent: oldCost)
+            
+            // Update total expenses
+            Expenses.totalSpent -= oldCost
+            Expenses.totalSpent += expense!.amount
+            
+        }
+        
     }
     
     @IBAction func expenseBarButton(_ sender: Any) {
@@ -215,7 +236,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
                 self.performSegue(withIdentifier: "unwindToBudget", sender: self)
             } else {
                 // Update expense
-//                updateExpense
+                updateExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
                 self.performSegue(withIdentifier: "unwindToDisplay", sender: self)
             }
         }

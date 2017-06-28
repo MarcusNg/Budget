@@ -11,10 +11,14 @@ import RealmSwift
 
 class Expense: Object {
     
-    dynamic var amount: Double = 0
+    dynamic var id: String = UUID().uuidString
     dynamic var category: String = ""
-    dynamic var note: String = ""
+    dynamic var amount: Double = 0
     dynamic var date: Date = Date()
+    dynamic var note: String = ""
     dynamic var monthYear: String = ""
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

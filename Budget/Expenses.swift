@@ -32,7 +32,7 @@ class Expenses {
             totalSpent += expense.amount
             
             // Update money spent
-            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
+            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount, oldMoneySpent: 0)
         }
  
     }
@@ -53,7 +53,7 @@ class Expenses {
             totalSpent += expense.amount
             
             // Update money spent
-            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount)
+            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount, oldMoneySpent: 0)
 //            print("\(expense.category) -- \(expense.amount)")
         }
         

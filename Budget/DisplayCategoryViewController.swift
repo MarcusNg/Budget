@@ -27,16 +27,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        dates = Expenses.queryDates(category: category!, monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
-        dateExpenses = Expenses.queryCategoryDateExpense(category: category!, monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
-        
-        for date in dates {
-            let dateExp = dateExpenses[date]?.sorted {
-                $0.date > $1.date
-            }
-            
-            dateExpenses[date] = dateExp
-        }
+        setup()
         
         self.categoryNavBar.title = category
         self.expenseTable.allowsSelection = false
@@ -68,8 +59,29 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
 
     @IBAction func unwindToDisplay(_ segue: UIStoryboardSegue) {
         print("Unwind to DisplayExpenseVC")
+        setup()
+        
         self.expenseTable.reloadData()
-        // prob gonna have to run update fxn
+    }
+    
+    func setup() {
+        for cat in Categories.allCategories {
+            if category! == cat.getCategory() {
+                catMoneySpent = cat.getMoneySpent()
+                catMoneyLimit = cat.getMoneyLimit()
+            }
+        }
+        
+        dates = Expenses.queryDates(category: category!, monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
+        dateExpenses = Expenses.queryCategoryDateExpense(category: category!, monthYear: DateHelper.printMonthYear(date: DateHelper.selectedDate))
+        
+        for date in dates {
+            let dateExp = dateExpenses[date]?.sorted {
+                $0.date > $1.date
+            }
+            
+            dateExpenses[date] = dateExp
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -114,9 +126,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             
             budgetCell.categoryLabel.text = ""
 
-//            budgetCell.bar.transform = CGAffineTransform(scaleX: 1, y: 8)
             let progress: Float = Float(self.catMoneySpent! / self.catMoneyLimit!)
-            // Bug - doesn't fill whole bar height)
             UIView.animate(withDuration: 1.2, animations: { () -> Void in
                 budgetCell.bar.setProgress(progress, animated: true)
             })
@@ -160,7 +170,8 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // Edit
         let editAction = UITableViewRowAction(style: .default, title: "Edit    ") { (action, index) in
-            print("Edit cell")
+//            print("Edit cell")
+            
             // Segue to CreateExpenseVC
             self.indexPathForAction = indexPath
             self.performSegue(withIdentifier: "updateExpense", sender: self)
@@ -168,7 +179,7 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         
         // Delete
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, index) in
-            print("Delete cell")
+//            print("Delete cell")
             
             // Get remove expense from dictionary
             let expense = self.dateExpenses[self.dates[indexPath.section - 1]]?.remove(at: indexPath.row)
