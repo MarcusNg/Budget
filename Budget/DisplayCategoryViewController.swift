@@ -20,6 +20,9 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     var dates: [String] = [] // Array of dates from expenses (current month)
     var dateExpenses: [String : [Expense]] = [:] // Contain dates paired with matching expenses
     
+    // IndexPath of tableview acion
+    var indexPathForAction: IndexPath? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -46,7 +49,30 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // Segue to expense
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "updateExpense" {
+                
+                // Find row selected
+                let createExpenseVC = segue.destination as! CreateExpenseViewController
+                
+                // Pass expense info to the create expense VC
+                let selectedExpense: Expense = (self.dateExpenses[self.dates[indexPathForAction!.section - 1]]?[indexPathForAction!.row])!
+                
+                createExpenseVC.expense = selectedExpense
+                // Pass the category to the displayVC
+//                let sortedCat = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row]
+//                displayCategoryVC.category = sortedCat.getCategory()
+//                displayCategoryVC.catMoneySpent = sortedCat.getMoneySpent()
+//                displayCategoryVC.catMoneyLimit = sortedCat.getMoneyLimit()
+                // Deselect cell
+//                budgetTable.deselectRow(at: indexPath, animated: true)
+                
+            }
+        }
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return dates.count + 1
     }
@@ -115,12 +141,12 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
             
             let expenseCell = tableView.dequeueReusableCell(withIdentifier: "ExpenseCell", for: indexPath) as! ExpenseTableViewCell
 
-            let expense = dateExpenses[dates[indexPath.section - 1]]?[indexPath.row]
+            let expense: Expense = (dateExpenses[dates[indexPath.section - 1]]?[indexPath.row])!
             
-            let moneySpent: String = String(format: "%.02f", expense!.amount)
+            let moneySpent: String = String(format: "%.02f", expense.amount)
             
-            expenseCell.noteLabel.text = expense!.note
-            expenseCell.timeLabel.text = DateHelper.printTime(date: expense!.date)
+            expenseCell.noteLabel.text = expense.note
+            expenseCell.timeLabel.text = DateHelper.printTime(date: expense.date)
             expenseCell.moneySpentLabel.text = "- $\(moneySpent)"
             expenseCell.moneySpentLabel.textColor = UIColor.red
             
@@ -133,10 +159,15 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     
     // Table View Actions
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, index) in
+        // Edit
+        let editAction = UITableViewRowAction(style: .default, title: "Edit    ") { (action, index) in
             print("Edit cell")
+            // Segue to CreateExpenseVC
+            self.indexPathForAction = indexPath
+            self.performSegue(withIdentifier: "updateExpense", sender: self)
         }
         
+        // Delete
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, index) in
             print("Delete cell")
             

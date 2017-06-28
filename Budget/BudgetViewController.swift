@@ -26,14 +26,14 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NavBar.customizeNavBar(navController: navigationController)
         slideMenu(button: menuButton)
 
-        print("Budget VC Loaded")
+//        print("Budget VC Loaded")
     }
 
     // Updates all categories and budget every time view shows up
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateBudget()
-        print("Budget VC Appeared")
+//        print("Budget VC Appeared")
     }
     
     override func didReceiveMemoryWarning() {

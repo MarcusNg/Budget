@@ -51,7 +51,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DX3-0z-lXj" id="UhJ-8F-8au">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -59,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pi2-JM-y8y" id="Dhm-hD-BPG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmX-l7-zIz">
@@ -79,7 +79,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="scQ-9G-yQu" id="naE-fq-icX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Feed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-Qt-n64">
@@ -99,7 +99,7 @@
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJ2-lg-0hI" id="eGl-Hy-jkj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Podcasts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzd-Tn-c3f">
@@ -119,7 +119,7 @@
                                         <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VOg-Ys-P62" id="yfN-qG-A5l">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAS-5u-37B">
@@ -139,7 +139,7 @@
                                         <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pva-Ba-DZk" id="eFj-Yt-sdJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmW-2c-uah">
@@ -311,7 +311,7 @@
                                         <rect key="frame" x="0.0" y="403" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8z0-yq-sHy" id="amZ-N1-BK4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpE-xa-g3x">
@@ -418,7 +418,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cTd-yo-I9P" id="meR-Hh-BGL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGJ-y5-peJ">
@@ -464,7 +464,7 @@
                                         <rect key="frame" x="0.0" y="124" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9qp-Al-tGq" id="LMv-Mq-tCU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- $0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C9D-De-tGc">
@@ -532,6 +532,7 @@
                     <connections>
                         <outlet property="categoryNavBar" destination="myY-Oo-7fD" id="y4U-CY-SjG"/>
                         <outlet property="expenseTable" destination="ynf-4H-bdn" id="NSX-FQ-MpE"/>
+                        <segue destination="xxE-Lq-y4E" kind="show" identifier="updateExpense" id="MlC-ag-jbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1V-eG-akV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -745,10 +746,10 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="fYp-LZ-JLO" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="16" y="272.5" width="343" height="36"/>
+                                <rect key="frame" x="16" y="260.5" width="343" height="30"/>
                                 <color key="backgroundColor" red="0.83995757410000005" green="0.95298274159999996" blue="0.95808465060000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -762,8 +763,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="height" secondItem="K1R-oq-mUY" secondAttribute="height" multiplier="0.06" id="9BA-nx-sxs"/>
-                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="centerY" secondItem="K1R-oq-mUY" secondAttribute="centerY" multiplier="0.92" constant="13.074999999999989" id="HAu-kg-QcV"/>
+                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="height" secondItem="K1R-oq-mUY" secondAttribute="height" multiplier="0.05" id="9BA-nx-sxs"/>
+                            <constraint firstItem="fYp-LZ-JLO" firstAttribute="centerY" secondItem="K1R-oq-mUY" secondAttribute="centerY" multiplier="0.87" constant="13.074999999999989" id="HAu-kg-QcV"/>
                             <constraint firstItem="A2O-fq-M1x" firstAttribute="leading" secondItem="K1R-oq-mUY" secondAttribute="leading" id="LNt-hx-GAJ"/>
                             <constraint firstItem="fYp-LZ-JLO" firstAttribute="width" secondItem="K1R-oq-mUY" secondAttribute="width" multiplier="0.8" constant="43" id="NFP-Mi-CDt"/>
                             <constraint firstItem="qdJ-h5-22x" firstAttribute="leading" secondItem="K1R-oq-mUY" secondAttribute="leading" id="O7l-Mq-W5V"/>
@@ -779,9 +780,10 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Expense" id="Hrd-T0-yEK">
                         <barButtonItem key="rightBarButtonItem" id="dKH-4w-Bs7">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ogH-qd-G9K">
-                                <rect key="frame" x="329" y="7" width="30" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ogH-qd-G9K">
+                                <rect key="frame" x="299" y="7" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addExpenseButton:" destination="xxE-Lq-y4E" eventType="touchUpInside" id="fja-si-Db2"/>
@@ -793,6 +795,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barButton" destination="ogH-qd-G9K" id="o6g-Q8-5IE"/>
                         <outlet property="categoryPicker" destination="ehH-Eq-0hG" id="fxO-0b-yBJ"/>
                         <outlet property="datePicker" destination="Nii-6e-bJB" id="4Sf-Mt-71x"/>
                         <outlet property="expenseAmountLabel" destination="A2O-fq-M1x" id="7Yr-oL-Xbl"/>
@@ -969,5 +972,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dNj-K9-eLG"/>
+        <segue reference="MlC-ag-jbs"/>
     </inferredMetricsTieBreakers>
 </document>

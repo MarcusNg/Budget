@@ -15,8 +15,9 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var expenseAmountLabel: UILabel!
     @IBOutlet weak var noteTF: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
-    let categories = Categories.sortAlphabetically(categories: Categories.allCategories)
+    @IBOutlet weak var barButton: UIButton!
+
+    let categories: [Category] = Categories.sortAlphabetically(categories: Categories.allCategories)
     var rotationAngle: CGFloat!
     
     var index: Int = 1
@@ -24,10 +25,14 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     var cost: Double = 0.00
     var twoTaps: Int = 0
     
+    // Expense - if being updated
+    var expense: Expense? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        barButton.setTitle("Add", for: .normal)
         expenseAmountLabel.text = "$0.00"
         // Horizontal UIPickerView
         var y = self.view.frame.height / 8
@@ -37,10 +42,57 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         categoryPicker.selectRow(3, inComponent: 0, animated: true)
     
         // Date Picker
-        y = self.view.frame.height / 4.5
+        y = self.view.frame.height / 4.7
         datePicker.frame = CGRect(x: -100, y: y, width: view.frame.width + 200, height: 100)
         
         noteTF.delegate = self
+        
+        // If editing (expense not nil)
+        if expense != nil {
+            
+            // Change bar button text
+            barButton.setTitle("Update", for: .normal)
+            
+            // Change money to current expense amount
+            expenseAmountLabel.text = "$" + String(format: "%.02f", expense!.amount)
+            // Update costArray
+            costArray = []
+            for s in (expenseAmountLabel.text?.characters)! {
+                costArray.append(String(s))
+            }
+            
+            // Change index to correct position
+            let decimalTmp: String = costArray[costArray.count - 2] + costArray[costArray.count - 1]
+            if decimalTmp != "00" {
+                if costArray[costArray.count - 1] != "0" {
+                    index = costArray.count - 1 // Both decimals filled
+                } else {
+                    index = costArray.count - 2 // Tenths place filled
+                }
+            } else {
+                index = costArray.count - 3 // No decimal
+            }
+            
+            // Change cost
+            cost = expense!.amount
+            
+            // Change UIPicker to selected category
+            var categoryIndex = 0
+            for i in 0...categories.count {
+                if expense!.category == categories[i].getCategory() {
+                    categoryIndex = i
+                    break
+                }
+            }
+            categoryPicker.selectRow(categoryIndex, inComponent: 0, animated: true)
+            
+            // Change DatePicker to selected date
+            datePicker.setDate(expense!.date, animated: true)
+            
+            // Change noteTF to have current note
+            noteTF.text = expense!.note
+            
+        }
         
     }
 
@@ -176,7 +228,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row].getCategory() // sort alphabetically
+        return categories[row].getCategory()
     }
     
     // Width b/c picker view rotated
