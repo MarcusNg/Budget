@@ -14,29 +14,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         
-        let config = Realm.Configuration(
-            
-            schemaVersion: 1,  //Increment this each time your schema changes
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+            schemaVersion: 1,
             migrationBlock: { migration, oldSchemaVersion in
-                
+                // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if (oldSchemaVersion < 1) {
-                    
+
                 }
         })
-        
-        Realm.Configuration.defaultConfiguration = config
+
         
 //        let realm = try! Realm()
-        
-        // CLEAR DATABASE
-////        try! realm.write {
-////            realm.deleteAll()
-////        }
+//
+////         CLEAR DATABASE
+//        try! realm.write {
+//            realm.deleteAll()
+//        }
         
         return true
     }

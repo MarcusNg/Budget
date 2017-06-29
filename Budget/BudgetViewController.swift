@@ -128,8 +128,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let displayCategoryVC = segue.destination as! DisplayCategoryViewController
                 
                 // Pass the category to the displayVC
-                let sortedCat = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row]
-                displayCategoryVC.category = sortedCat.getCategory()
+                let sortedCat = Categories.allCategories.sorted(byKeyPath: "progress", ascending: false)[indexPath.row]
+                displayCategoryVC.category = sortedCat.name
                 
                 // Deselect cell
                 budgetTable.deselectRow(at: indexPath, animated: true)
@@ -160,14 +160,14 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "BudgetCell", for: indexPath) as! BudgetTableViewCell
         
-        let category = Categories.sortByProgress(categories: Categories.allCategories)[indexPath.row]
-        let moneySpent: String = String(format: "%.02f", category.getMoneySpent())
-        let moneyLimit: String = String(format: "%.02f", category.getMoneyLimit())
-        
-        cell.categoryLabel.text = category.getCategory() // Category
+        let category = Categories.allCategories.sorted(byKeyPath: "progress", ascending: false)[indexPath.row]
+        let moneySpent: String = String(format: "%.02f", category.moneySpent)
+        let moneyLimit: String = String(format: "%.02f", category.moneyLimit)
+
+        cell.categoryLabel.text = category.name // Category
         
         UIView.animate(withDuration: 1.2, animations: { () -> Void in
-            cell.bar.setProgress(Float(category.getProgress()), animated: true)
+            cell.bar.setProgress(Float(category.progress), animated: true)
         })
         if cell.bar.progress >= 0.85 { // +85% red
             cell.bar.tintColor = UIColor.red

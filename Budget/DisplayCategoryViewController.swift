@@ -66,9 +66,9 @@ class DisplayCategoryViewController: UIViewController, UITableViewDataSource, UI
     
     func setup() {
         for cat in Categories.allCategories {
-            if category! == cat.getCategory() {
-                catMoneySpent = cat.getMoneySpent()
-                catMoneyLimit = cat.getMoneyLimit()
+            if category! == cat.name {
+                catMoneySpent = cat.moneySpent
+                catMoneyLimit = cat.moneyLimit
             }
         }
         

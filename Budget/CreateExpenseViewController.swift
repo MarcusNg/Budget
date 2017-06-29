@@ -17,7 +17,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var barButton: UIButton!
 
-    let categories: [Category] = Categories.sortAlphabetically(categories: Categories.allCategories)
+    let categories = Categories.allCategories.sorted(byKeyPath: "name")
     var oldCat: String = ""
     var rotationAngle: CGFloat!
     
@@ -83,14 +83,14 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
             // Change UIPicker to selected category
             var categoryIndex = 0
             for i in 0...categories.count {
-                if expense!.category == categories[i].getCategory() {
+                if expense!.category == categories[i].name {
                     categoryIndex = i
                     break
                 }
             }
             
             categoryPicker.selectRow(categoryIndex, inComponent: 0, animated: true)
-            oldCat = categories[categoryPicker.selectedRow(inComponent: 0)].getCategory()
+            oldCat = categories[categoryPicker.selectedRow(inComponent: 0)].name
             
             // Change DatePicker to selected date
             datePicker.setDate(expense!.date, animated: true)
@@ -205,7 +205,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
             realm.add(expense)
             
             // Update money spent
-            Categories.updateMoneySpent(category: expense.category, moneySpent: expense.amount, oldMoneySpent: 0)
+            Categories.updateCategory(category: expense.category, moneySpent: expense.amount, oldMoneySpent: 0)
 
             // Update total expenses
             Expenses.totalSpent += expense.amount
@@ -222,16 +222,15 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
             
             // Update money spent
             if category == oldCat {
-                Categories.updateMoneySpent(category: category, moneySpent: amount, oldMoneySpent: oldCost)
+                Categories.updateCategory(category: category, moneySpent: amount, oldMoneySpent: oldCost)
             } else {
-                Categories.updateMoneySpent(category: oldCat, moneySpent: 0, oldMoneySpent: oldCost)
-                Categories.updateMoneySpent(category: category, moneySpent: amount, oldMoneySpent: 0)
+                Categories.updateCategory(category: oldCat, moneySpent: 0, oldMoneySpent: oldCost)
+                Categories.updateCategory(category: category, moneySpent: amount, oldMoneySpent: 0)
             }
             
             // Update total expenses
             Expenses.totalSpent -= oldCost
             Expenses.totalSpent += expense!.amount
-            
         }
         
     }
@@ -240,11 +239,11 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         if cost != 0 && (!(noteTF.text?.isEmpty)!) {
             if expense == nil {
                 // Add new expense
-                addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
+                addExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].name, amount: cost, date: datePicker.date, note: noteTF.text!)
                 self.performSegue(withIdentifier: "unwindToBudget", sender: self)
             } else {
                 // Update expense
-                updateExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].getCategory(), amount: cost, date: datePicker.date, note: noteTF.text!)
+                updateExpense(category: categories[categoryPicker.selectedRow(inComponent: 0)].name, amount: cost, date: datePicker.date, note: noteTF.text!)
                 self.performSegue(withIdentifier: "unwindToDisplay", sender: self)
             }
         }
@@ -261,7 +260,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row].getCategory()
+        return categories[row].name
     }
     
     // Width b/c picker view rotated
@@ -273,7 +272,7 @@ class CreateExpenseViewController: UIViewController, UIPickerViewDelegate, UIPic
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 450, height: 50))
         
         let categoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 450, height: 50))
-        categoryLabel.text = categories[row].getCategory()
+        categoryLabel.text = categories[row].name
         categoryLabel.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
         categoryLabel.textAlignment = .center
         view.addSubview(categoryLabel)
